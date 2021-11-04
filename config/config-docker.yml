@@ -1,0 +1,36 @@
+server:
+  PortServer: :5000
+  PprofPort: :5555
+
+secretService:
+  JwtSecretKey: secretkey
+
+mysql:
+  MysqlHost:     localhost
+  MysqlPort:     3306
+  MysqlUser:     root
+  MysqlPassword: 1234
+  MysqlDbname:   db
+  MysqlDriver:   mysql
+
+constant:
+  Rbac: "config/conf/rbac_model.conf"
+
+rabbitmq:
+  Host: localhost
+  Port: 5672
+  User: guest
+  Password: guest
+  Exchange: emails-exchange
+  Queue: emails-queue
+  RoutingKey: emails-routing-key
+  ConsumerTag: emails-consumer
+  WorkerPoolSize: 24
+
+redis:
+  dns: "localhost:7002"
+
+twilio:
+  TwilioAccountSid: AC3778629a929e83593a0ae0a3f01f1ff3
+  TwilioAuthToken: 7c033df802e886cfd3e8094a77958073
+  TwilioPhoneNumber: +84384456950
