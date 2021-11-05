@@ -7,6 +7,7 @@ import (
 	"github.com/JieeiroSst/itjob/pkg/log"
 	"github.com/JieeiroSst/itjob/pkg/mysql"
 	"github.com/JieeiroSst/itjob/pkg/snowflake"
+	"github.com/JieeiroSst/itjob/users/internal/db"
 	deliveryHttp "github.com/JieeiroSst/itjob/users/internal/delivery/http"
 	"github.com/JieeiroSst/itjob/users/internal/http"
 	"github.com/JieeiroSst/itjob/users/internal/repository"
@@ -43,7 +44,8 @@ func main() {
 
 	router := gin.Default()
 
-	userRepository := repository.NewUserRepository(mysqlOrm)
+	db := db.NewUserDB(mysqlOrm)
+	userRepository := repository.NewUserRepository(db)
 	userCase := usecase.NewUserCase(userRepository, *hash, tokenUser, *conf)
 	userHttp := http.NewUserHttp(userCase)
 	newDeliveryHttp := deliveryHttp.NewDeliveryHttp(userHttp)

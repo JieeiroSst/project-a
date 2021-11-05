@@ -2,7 +2,7 @@ package repository
 
 import (
 	"errors"
-	mockRepository "github.com/JieeiroSst/itjob/users/internal/repository/mock_repository"
+	"github.com/JieeiroSst/itjob/users/internal/repository/mocks"
 	"github.com/golang/mock/gomock"
 	"testing"
 )
@@ -10,8 +10,7 @@ import (
 func TestUserRepository_CheckIP(t *testing.T) {
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
-
-	m := mockRepository.NewMockUserRepository(ctrl)
+	mockDoer := mocks.NewMockUserRepository(ctrl)
 
 	testTable := [] struct {
 		description string
@@ -31,8 +30,10 @@ func TestUserRepository_CheckIP(t *testing.T) {
 	}
 
 	for _, tt := range testTable {
-		m.EXPECT().CheckIP(gomock.Eq(tt.got)).Return(tt.want)
+		mockDoer.EXPECT().CheckIP(tt.got).Return(tt.want)
 	}
+
+
 }
 
 func TestUserRepository_CheckAccount(t *testing.T) {
