@@ -2,19 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e5241c6f-13fd-43c2-8971-c3cfa54ad157" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/internal/db/db.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users/internal/delivery/http/http.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/cmd/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/users/cmd/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/internal/delivery/http/mock_http/mock_http.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/internal/http/mock_http/mock_http.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/internal/repository/mock_repository/mock_repository.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/internal/repository/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/users/internal/repository/repository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/internal/repository/repository_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/users/internal/repository/repository_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/internal/router/mock_router/mock_router.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/internal/usecase/mock_usecase/mock_usecase.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/internal/delivery/http/delivery_http.go" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

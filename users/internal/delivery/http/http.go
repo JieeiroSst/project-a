@@ -20,9 +20,7 @@ type DeliveryHttp interface {
 }
 
 func NewDeliveryHttp(userHttp http.UserHttp) DeliveryHttp {
-	return &deliveryHttp{
-		userHttp,
-	}
+	return &deliveryHttp{userHttp:userHttp}
 }
 
 func (d *deliveryHttp) Login(user model.Users) (int, string , error) {
@@ -75,3 +73,4 @@ func (d *deliveryHttp) FindAllUser() (model.Users, error) {
 	log.NewLog().Info("found all users")
 	return users, nil
 }
+

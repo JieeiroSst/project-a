@@ -3,6 +3,7 @@ module github.com/JieeiroSst/itjob
 go 1.15
 
 require (
+	github.com/Kong/go-pdk v0.7.1
 	github.com/allegro/bigcache v1.2.1
 	github.com/aws/aws-sdk-go v1.40.43
 	github.com/bwmarrin/snowflake v0.3.0

@@ -2,6 +2,8 @@ cloud.google.com/go v0.26.0/go.mod h1:aQUYkXzVsufM+DwF1aE+0xfcU+56JwCaLick0ClmMT
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/Knetic/govaluate v3.0.1-0.20171022003610-9aa49832a739+incompatible h1:1G1pk05UrOh0NlF1oeaaix1x8XzrfjIDK47TY0Zehcw=
 github.com/Knetic/govaluate v3.0.1-0.20171022003610-9aa49832a739+incompatible/go.mod h1:r7JcOSlj0wfOMncg0iLm8Leh48TZaKVeNIfJntJ2wa0=
+github.com/Kong/go-pdk v0.7.1 h1:DWpmvuafH/35xws0VsXPyiGVtQmUuICnok9Hqolgdgg=
+github.com/Kong/go-pdk v0.7.1/go.mod h1:48+yltNveiFYTo6/I1AnmGn3m8goSQbtkfamH1zkwhw=
 github.com/Masterminds/semver/v3 v3.1.1 h1:hLg3sBzpNErnxhQtUy/mmLR2I9foDujNK030IGemrRc=
 github.com/Masterminds/semver/v3 v3.1.1/go.mod h1:VPu/7SZ7ePZ3QOrcuXROw5FAcLl4a0cBrbBpGY/8hQs=
 github.com/allegro/bigcache v1.2.1 h1:hg1sY1raCwic3Vnsvje6TT7/pnZba83LeFck5NrFKSc=
@@ -250,8 +252,12 @@ github.com/twilio/twilio-go v0.17.0 h1:ly6coKs+eMbIXYcUv/8X0NyyuDwHwaiT7tS/yzxCb
 github.com/twilio/twilio-go v0.17.0/go.mod h1:WjUXgTBxSIulqvwQMMkXToIekpPBpop+LjPIaTbOPPk=
 github.com/ugorji/go v1.1.7 h1:/68gy2h+1mWMrwZFeD1kQialdSzAb432dtpeJ42ovdo=
 github.com/ugorji/go v1.1.7/go.mod h1:kZn38zHttfInRq0xu/PH0az30d+z6vm202qpg1oXVMw=
+github.com/ugorji/go v1.2.1 h1:dz+JxTe7GZQdErTo7SREc1jQj/hFP1k7jyIAwODoW+k=
+github.com/ugorji/go v1.2.1/go.mod h1:cSVypSfTLm2o9fKxXvQgn3rMmkPXovcWor6Qn5tbFmI=
 github.com/ugorji/go/codec v1.1.7 h1:2SvQaVZ1ouYrrKKwoSk2pzd4A9evlKJb9oTL+OaLUSs=
 github.com/ugorji/go/codec v1.1.7/go.mod h1:Ax+UKWsSmolVDwsd+7N3ZtXu+yMGCf907BLYF3GoBXY=
+github.com/ugorji/go/codec v1.2.1 h1:/TRfW3XKkvWvmAYyCUaQlhoCDGjcvNR8xVVA/l5p/jQ=
+github.com/ugorji/go/codec v1.2.1/go.mod h1:s/WxCRi46t8rA+fowL40EnmD7ec0XhR7ZypxeBNdzsM=
 github.com/yuin/goldmark v1.2.1/go.mod h1:3hX8gzYuyVAZsxl0MRgGTJEmQBFcNTphYh9decYSb74=
 github.com/yuin/goldmark v1.3.5/go.mod h1:mwnBkeHKe2W/ZEtQ+71ViKU8L12m81fl3OWwC1Zlc8k=
 github.com/yuin/goldmark v1.4.0/go.mod h1:mwnBkeHKe2W/ZEtQ+71ViKU8L12m81fl3OWwC1Zlc8k=
