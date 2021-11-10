@@ -13,6 +13,14 @@ mysql:
   MysqlDbname:   db
   MysqlDriver:   mysql
 
+casbinMysql:
+  MysqlHost:     localhost
+  MysqlPort:     3306
+  MysqlUser:     root
+  MysqlPassword: 1234
+  MysqlDbname:   db_casbin
+  MysqlDriver:   mysql
+
 constant:
   Rbac: "config/conf/rbac_model.conf"
 

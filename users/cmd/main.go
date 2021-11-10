@@ -1,4 +1,4 @@
-package main
+package cmd
 
 import (
 	"fmt"
@@ -18,10 +18,24 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func main() {
-	log.NewLog().Info("Starting server")
+type userCMD struct {
+	server *gin.Engine
+}
 
-	conf, err := config.ReadConf("conf/conf-docker.yml")
+type UserCMD interface {
+	Run() error
+}
+
+func NewUserMain(server *gin.Engine) UserCMD {
+	return &userCMD{
+		server: server,
+	}
+}
+
+func (m *userCMD) Run() error {
+	log.NewLog().Info("Starting user")
+
+	conf, err := config.ReadConf("config/conf-docker.yml")
 	if err != nil {
 		log.NewLog().Error(err.Error())
 	}
@@ -32,7 +46,6 @@ func main() {
 		newSnowflake = snowflake.NewSnowflake()
 	)
 
-
 	dns:=fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8&parseTime=True&loc=Local",
 		conf.Mysql.MysqlUser,
 		conf.Mysql.MysqlPassword,
@@ -42,22 +55,17 @@ func main() {
 	)
 	mysqlOrm:= mysql.NewMysqlConn(dns)
 
-	router := gin.Default()
-
 	db := db.NewUserDB(mysqlOrm)
 	userRepository := repository.NewUserRepository(db)
 	userCase := usecase.NewUserCase(userRepository, *hash, tokenUser, *conf)
 	userHttp := http.NewUserHttp(userCase)
 	newDeliveryHttp := deliveryHttp.NewDeliveryHttp(userHttp)
 	newRouter := userRouter.NewRouter(newDeliveryHttp, newSnowflake)
-	newUserServer := userServer.NewUserServer(newRouter, router)
+	newUserServer := userServer.NewUserServer(newRouter, m.server)
 
 	if err := newUserServer.RunServer(); err != nil {
 		log.NewLog().Error(err.Error())
 	}
 
-
-	if err := router.Run(conf.Server.PortServer); err != nil {
-		log.NewLog().Error(err.Error())
-	}
+	return nil
 }

@@ -20,15 +20,3 @@ type Login struct {
 	Username string 	`json:"username"`
 	Password string 	`json:"password"`
 }
-
-type Ip struct {
-	Id     int          `gorm:"primary_key" json:"id"`
-	Ip     string       `json:"ip"`
-	Method string       `json:"method"`
-	RequestAt time.Time `json:"created_at"`
-}
-
-type Image struct {
-	Id     int			`json:"id"`
-	Name   string 		`json:"name"`
-}

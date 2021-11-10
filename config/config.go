@@ -14,6 +14,7 @@ type Config struct {
 	RabbitMQ        RabbitMQ
 	Redis			Redis
 	Twilio          TwilioService
+	CasbinMysql     CasbinMysql
 }
 
 type ServerConfig struct {
@@ -39,6 +40,16 @@ type RabbitMQ struct {
 
 
 type MysqlConfig struct {
+	MysqlHost     string
+	MysqlPort     string
+	MysqlUser     string
+	MysqlPassword string
+	MysqlDbname   string
+	MysqlSSLMode  bool
+	MysqlDriver   string
+}
+
+type CasbinMysql struct {
 	MysqlHost     string
 	MysqlPort     string
 	MysqlUser     string
