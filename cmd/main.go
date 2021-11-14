@@ -4,6 +4,7 @@ import (
 	casbinCMD "github.com/JieeiroSst/itjob/casbin/cmd"
 	"github.com/JieeiroSst/itjob/config"
 	"github.com/JieeiroSst/itjob/pkg/log"
+	uploadCMD "github.com/JieeiroSst/itjob/upload/cmd"
 	userCMD "github.com/JieeiroSst/itjob/users/cmd"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
@@ -28,10 +29,11 @@ func main(){
 		log.NewLog().Error(err.Error())
 	}
 
-	userCMD := userCMD.NewUserMain(router)
+	userMain := userCMD.NewUserMain(router)
 	casbinCMD := casbinCMD.NewCasbinCMD(router)
+	uploadCMD := uploadCMD.NewUploadCMD(router)
 
-	if err := userCMD.Run(); err != nil {
+	if err := userMain.Run(); err != nil {
 		log.NewLog().Error("run server user failed")
 	}
 
@@ -39,9 +41,13 @@ func main(){
 		log.NewLog().Error("run server casbin failed")
 	}
 
+	if err := uploadCMD.Run(); err != nil {
+		log.NewLog().Error("run server upload failed")
+	}
+
 	go func() {
 		if err := router.Run(conf.Server.PortServer); err != nil {
-			log.NewLog().Error("run port server failed")
+			log.NewLog().Errorf("run port server failed port %s: ",conf.Server.PortServer)
 		}
 	}()
 }
