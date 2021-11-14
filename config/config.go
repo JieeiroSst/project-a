@@ -15,6 +15,7 @@ type Config struct {
 	Redis			Redis
 	Twilio          TwilioService
 	CasbinMysql     CasbinMysql
+	AmazonS3        AmazonS3
 }
 
 type ServerConfig struct {
@@ -71,6 +72,12 @@ type TwilioService struct {
 	TwilioAccountSid  string
 	TwilioAuthToken   string
 	TwilioPhoneNumber string
+}
+
+type AmazonS3 struct {
+	S3Region string
+	S3Bucket string
+	S3ACL   string
 }
 
 func ReadConf(filename string) (*Config, error) {

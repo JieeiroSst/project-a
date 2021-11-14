@@ -42,3 +42,8 @@ twilio:
   TwilioAccountSid: AC3778629a929e83593a0ae0a3f01f1ff3
   TwilioAuthToken: 7c033df802e886cfd3e8094a77958073
   TwilioPhoneNumber: +84384456950
+
+amazonS3:
+  S3Region:
+  S3Bucket:
+  S3ACL: private

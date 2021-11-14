@@ -55,8 +55,8 @@ func (m *userCMD) Run() error {
 	)
 	mysqlOrm:= mysql.NewMysqlConn(dns)
 
-	db := db.NewUserDB(mysqlOrm)
-	userRepository := repository.NewUserRepository(db)
+	userDB := db.NewUserDB(mysqlOrm)
+	userRepository := repository.NewUserRepository(userDB)
 	userCase := usecase.NewUserCase(userRepository, *hash, tokenUser, *conf)
 	userHttp := http.NewUserHttp(userCase)
 	newDeliveryHttp := deliveryHttp.NewDeliveryHttp(userHttp)

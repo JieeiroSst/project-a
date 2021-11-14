@@ -7,22 +7,22 @@ import (
 	"sync"
 )
 
-type S3 struct {
+type AmazonS3 struct {
 	s3 *session.Session
 }
 
 var (
-	instance *S3
+	instance *AmazonS3
 	once     sync.Once
 )
 
-func GetS3ConnInstance(region string) *S3{
+func GetS3ConnInstance(region string) *AmazonS3{
 	once.Do(func() {
 		session,err:=session.NewSession(&aws.Config{Region:aws.String(region)})
 		if err!=nil{
 			log.Println(err)
 		}
-		instance = &S3{s3:session}
+		instance = &AmazonS3{s3:session}
 	})
 	return instance
 }
