@@ -40,27 +40,27 @@ func (c *casbinCMD) Run() error {
 		log.NewLog().Error(err.Error())
 	}
 
-	var pagination = pagination.NewPaginationPage(model.Pagination{})
-	var snowflake = snowflake.NewSnowflake()
+	var paginationPage = pagination.NewPaginationPage(model.Pagination{})
+	var snowflakeData = snowflake.NewSnowflake()
 
 	dns:=fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8&parseTime=True&loc=Local",
-		conf.CasbinMysql.MysqlUser,
-		conf.CasbinMysql.MysqlPassword,
-		conf.CasbinMysql.MysqlHost,
-		conf.CasbinMysql.MysqlPort,
-		conf.CasbinMysql.MysqlDbname,
+		conf.Mysql.MysqlUser,
+		conf.Mysql.MysqlPassword,
+		conf.Mysql.MysqlHost,
+		conf.Mysql.MysqlPort,
+		conf.Mysql.MysqlDbname,
 	)
 	mysqlOrm:= mysql.NewMysqlConn(dns)
 
-	db := db.NewCasbinDB(mysqlOrm, pagination)
-	repository := repository.NewCasbinRuleRepository(db)
-	usecase := usecase.NewCasbinRuleUseCase(repository)
-	http := http.NewHttp(usecase)
-	deliveryHttp := deliveryHttp.NewDeliveryHttp(http)
-	router := router.NewCasbinRouter(deliveryHttp, snowflake)
-	casbinServer := casbinServer.NewCasbinServer(c.server,mysqlOrm,router)
+	casbinDB := db.NewCasbinDB(mysqlOrm, paginationPage)
+	casbinRuleRepository := repository.NewCasbinRuleRepository(casbinDB)
+	casbinRuleUseCase := usecase.NewCasbinRuleUseCase(casbinRuleRepository)
+	newHttp := http.NewHttp(casbinRuleUseCase)
+	newDeliveryHttp := deliveryHttp.NewDeliveryHttp(newHttp)
+	casbinRouter := router.NewCasbinRouter(newDeliveryHttp, snowflakeData)
+	newCasbinServer := casbinServer.NewCasbinServer(c.server,mysqlOrm, casbinRouter)
 
-	if err := casbinServer.Run(); err != nil {
+	if err := newCasbinServer.Run(); err != nil {
 		log.NewLog().Error(err.Error())
 	}
 

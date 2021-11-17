@@ -3,6 +3,7 @@ package main
 import (
 	casbinCMD "github.com/JieeiroSst/itjob/casbin/cmd"
 	"github.com/JieeiroSst/itjob/config"
+	dbCMD "github.com/JieeiroSst/itjob/db/cmd"
 	"github.com/JieeiroSst/itjob/pkg/log"
 	uploadCMD "github.com/JieeiroSst/itjob/upload/cmd"
 	userCMD "github.com/JieeiroSst/itjob/users/cmd"
@@ -27,6 +28,10 @@ func main(){
 	conf, err := config.ReadConf("config/conf-docker.yml")
 	if err != nil {
 		log.NewLog().Error(err.Error())
+	}
+
+	if err := dbCMD.NewDbCMD(conf); err != nil {
+		log.NewLog().Error(err)
 	}
 
 	userMain := userCMD.NewUserMain(router)

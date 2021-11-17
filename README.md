@@ -1,4 +1,4 @@
-mockgen -destination=mocks/mock_doer.go -package=mocks github.com/JieeiroSst/itjob/users/internal/repository UserRepository
+mockgen -destination=mock_doer.go -package=repository github.com/JieeiroSst/itjob/users/internal/repository UserRepository
  
 mockgen -destination=mocks/mock_doer.go -package=mocks github.com/JieeiroSst/itjob/users/internal/usecase UserUsecase
  
@@ -40,3 +40,4 @@ func (p *Point) Delete(db gorm.DB) {
 	db.Unscoped().Delete(p)
 }
 
+time_start _+ interval '10 second'

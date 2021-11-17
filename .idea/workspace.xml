@@ -2,8 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e5241c6f-13fd-43c2-8971-c3cfa54ad157" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/db/cmd/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/db.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/execute.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/casbin/cmd/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/casbin/cmd/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/images.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/images.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/internal/mocks/mock_doer.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/internal/repository/mocks/mock_doer.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/internal/repository/repository_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/users/internal/repository/repository_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,16 +54,17 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/casbin/internal" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/pkg" />
       <recent name="$PROJECT_DIR$/users" />
       <recent name="$PROJECT_DIR$/access_control" />
       <recent name="$PROJECT_DIR$/config" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/db/migration" />
+      <recent name="$PROJECT_DIR$/casbin/internal" />
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -70,13 +82,21 @@
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state x="555" y="215" width="800" height="679" key="#Go_Modules_(vgo)/0.28.1920.1052@0.28.1920.1052" timestamp="1635527947992" />
+    <state x="418" y="212" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1637105186476">
+      <screen x="0" y="28" width="1920" height="1052" />
+    </state>
+    <state x="418" y="212" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.28.1920.1052@0.28.1920.1052" timestamp="1637105186476" />
+    <state x="578" y="359" width="753" height="392" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1637068214436">
+      <screen x="0" y="28" width="1920" height="1052" />
+    </state>
+    <state x="578" y="359" width="753" height="392" key="#com.intellij.fileTypes.FileTypeChooser/0.28.1920.1052@0.28.1920.1052" timestamp="1637068214436" />
     <state x="743" y="312" width="424" height="486" key="FileChooserDialogImpl" timestamp="1636217379809">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state x="743" y="312" width="424" height="486" key="FileChooserDialogImpl/0.28.1920.1052@0.28.1920.1052" timestamp="1636217379809" />
-    <state x="623" y="260" width="672" height="678" key="search.everywhere.popup" timestamp="1635769237150">
+    <state x="623" y="260" width="672" height="678" key="search.everywhere.popup" timestamp="1637069520996">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
-    <state x="623" y="260" width="672" height="678" key="search.everywhere.popup/0.28.1920.1052@0.28.1920.1052" timestamp="1635769237150" />
+    <state x="623" y="260" width="672" height="678" key="search.everywhere.popup/0.28.1920.1052@0.28.1920.1052" timestamp="1637069520996" />
   </component>
 </project>
