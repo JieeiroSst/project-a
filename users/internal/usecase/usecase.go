@@ -17,6 +17,7 @@ type userUsecase struct {
 	jwt jwt.TokenUser
 }
 
+//go:generate mockgen --destination=./mocks/userUsecase.go usecase UserUsecase
 type UserUsecase interface {
 	Login(user model.Users) (int, string , error)
 	SignUp(user model.Users) error

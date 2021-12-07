@@ -12,6 +12,7 @@ type userRepository struct {
 	db db.UserDB
 }
 
+//go:generate mockgen --destination=./mocks/userRepository.go github.com/JieeiroSst/itjob/users/internal/repository UserRepository
 type UserRepository interface {
 	CheckAccount(user model.Users) (int, string, error)
 	CheckAccountExists(user model.Users) error

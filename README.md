@@ -41,3 +41,19 @@ func (p *Point) Delete(db gorm.DB) {
 }
 
 time_start _+ interval '10 second'
+
+
+func unique(sample []Data) []Data {
+	var unique []Data
+sampleLoop:
+	for _, v := range sample {
+		for i, u := range unique {
+			if v.factoryId == u.factoryId && v.plantId == u.plantId && v.lineId == u.lineId {
+				unique[i] = v
+				continue sampleLoop
+			}
+		}
+		unique = append(unique, v)
+	}
+	return unique
+}

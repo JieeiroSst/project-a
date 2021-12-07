@@ -47,3 +47,6 @@ amazonS3:
   S3Region:
   S3Bucket:
   S3ACL: private
+
+prometheus:
+  PrometheusPushgateway: "http://localhost:9091/"

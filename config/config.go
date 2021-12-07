@@ -16,6 +16,7 @@ type Config struct {
 	Twilio          TwilioService
 	CasbinMysql     CasbinMysql
 	AmazonS3        AmazonS3
+	Prometheus      Prometheus
 }
 
 type ServerConfig struct {
@@ -78,6 +79,10 @@ type AmazonS3 struct {
 	S3Region string
 	S3Bucket string
 	S3ACL   string
+}
+
+type Prometheus struct {
+	PrometheusPushgateway string
 }
 
 func ReadConf(filename string) (*Config, error) {

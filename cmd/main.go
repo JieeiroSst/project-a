@@ -1,14 +1,17 @@
 package main
 
 import (
+	"github.com/JieeiroSst/itjob/access_control"
 	casbinCMD "github.com/JieeiroSst/itjob/casbin/cmd"
 	"github.com/JieeiroSst/itjob/config"
 	dbCMD "github.com/JieeiroSst/itjob/db/cmd"
 	"github.com/JieeiroSst/itjob/pkg/log"
+	"github.com/JieeiroSst/itjob/pkg/metric"
 	uploadCMD "github.com/JieeiroSst/itjob/upload/cmd"
 	userCMD "github.com/JieeiroSst/itjob/users/cmd"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"time"
 )
 
@@ -25,10 +28,25 @@ func main(){
 
 	router.Use(cors.New(routerConfig))
 
+	h := promhttp.Handler()
+
+	prometheusHandler := func(c *gin.Context) {
+		h.ServeHTTP(c.Writer, c.Request)
+	}
+
+	router.GET("/metrics", prometheusHandler)
+
 	conf, err := config.ReadConf("config/conf-docker.yml")
 	if err != nil {
 		log.NewLog().Error(err.Error())
 	}
+
+	metricService, err := metric.NewPrometheusService(conf)
+	if err != nil {
+
+	}
+
+	router.Use(access_control.Metrics(metricService))
 
 	if err := dbCMD.NewDbCMD(conf); err != nil {
 		log.NewLog().Error(err)
