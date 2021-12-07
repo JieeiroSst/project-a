@@ -19,11 +19,12 @@ type CasbinServer interface {
 	Run() error
 }
 
-func NewCasbinServer(server *gin.Engine,db *gorm.DB, router router.CasbinRouter) CasbinServer{
+func NewCasbinServer(server *gin.Engine,db *gorm.DB, router router.CasbinRouter,auth access_control.Authorization) CasbinServer{
 	return &casbinServer{
 		server:server,
 		db:db,
 		router:router,
+		auth:auth,
 	}
 }
 

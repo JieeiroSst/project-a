@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"github.com/JieeiroSst/itjob/access_control"
 	"github.com/JieeiroSst/itjob/casbin/internal/db"
 	deliveryHttp "github.com/JieeiroSst/itjob/casbin/internal/delivery/http"
 	"github.com/JieeiroSst/itjob/casbin/internal/http"
@@ -11,6 +12,8 @@ import (
 	"github.com/JieeiroSst/itjob/casbin/internal/usecase"
 	"github.com/JieeiroSst/itjob/config"
 	"github.com/JieeiroSst/itjob/model"
+	"github.com/JieeiroSst/itjob/pkg/bigcache"
+	"github.com/JieeiroSst/itjob/pkg/jwt"
 	"github.com/JieeiroSst/itjob/pkg/log"
 	"github.com/JieeiroSst/itjob/pkg/mysql"
 	"github.com/JieeiroSst/itjob/pkg/pagination"
@@ -42,6 +45,9 @@ func (c *casbinCMD) Run() error {
 
 	var paginationPage = pagination.NewPaginationPage(model.Pagination{})
 	var snowflakeData = snowflake.NewSnowflake()
+	var tokenUser = jwt.NewTokenUser(conf)
+	var cache = bigcache.NewBigCache()
+
 
 	dns:=fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8&parseTime=True&loc=Local",
 		conf.Mysql.MysqlUser,
@@ -52,13 +58,15 @@ func (c *casbinCMD) Run() error {
 	)
 	mysqlOrm:= mysql.NewMysqlConn(dns)
 
+	accessControl := access_control.NewAuthorization(cache,tokenUser)
+
 	casbinDB := db.NewCasbinDB(mysqlOrm, paginationPage)
 	casbinRuleRepository := repository.NewCasbinRuleRepository(casbinDB)
 	casbinRuleUseCase := usecase.NewCasbinRuleUseCase(casbinRuleRepository)
 	newHttp := http.NewHttp(casbinRuleUseCase)
 	newDeliveryHttp := deliveryHttp.NewDeliveryHttp(newHttp)
 	casbinRouter := router.NewCasbinRouter(newDeliveryHttp, snowflakeData)
-	newCasbinServer := casbinServer.NewCasbinServer(c.server,mysqlOrm, casbinRouter)
+	newCasbinServer := casbinServer.NewCasbinServer(c.server,mysqlOrm, casbinRouter, accessControl)
 
 	if err := newCasbinServer.Run(); err != nil {
 		log.NewLog().Error(err.Error())
