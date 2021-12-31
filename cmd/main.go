@@ -7,6 +7,7 @@ import (
 	dbCMD "github.com/JieeiroSst/itjob/db/cmd"
 	"github.com/JieeiroSst/itjob/pkg/log"
 	"github.com/JieeiroSst/itjob/pkg/metric"
+	postCMD "github.com/JieeiroSst/itjob/post/cmd"
 	uploadCMD "github.com/JieeiroSst/itjob/upload/cmd"
 	userCMD "github.com/JieeiroSst/itjob/users/cmd"
 	"github.com/gin-contrib/cors"
@@ -17,6 +18,8 @@ import (
 
 func main(){
 	router := gin.Default()
+
+	finish := make(chan bool)
 
 	routerConfig := cors.Config{
 		AllowAllOrigins:  true,
@@ -56,6 +59,8 @@ func main(){
 	casbinCMD := casbinCMD.NewCasbinCMD(router)
 	uploadCMD := uploadCMD.NewUploadCMD(router)
 
+	postGrpc := postCMD.NewServerGrpcPost()
+
 	if err := userMain.Run(); err != nil {
 		log.NewLog().Error("run server user failed")
 	}
@@ -73,4 +78,12 @@ func main(){
 			log.NewLog().Errorf("run port server failed port %s: ",conf.Server.PortServer)
 		}
 	}()
+
+	go func() {
+		if err := postGrpc.Run(); err != nil {
+			log.NewLog().Errorf("run port port grpc failed port %s: ",conf.Server.PortServer)
+		}
+	}()
+
+	<-finish
 }

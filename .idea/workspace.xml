@@ -2,24 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e5241c6f-13fd-43c2-8971-c3cfa54ad157" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/access_control/metrics.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/access_control/rate_limmit.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/prometheus.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/metric/interface.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/metric/prometheus.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/post.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post/internal/grpc/api/proto/service.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post/internal/grpc/pkg/api/service.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post/internal/grpc/pkg/delivery/grpc.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post/internal/grpc/pkg/repository/repository.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post/internal/grpc/pkg/router/router.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post/internal/grpc/pkg/usecase/usecase.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post/internal/grpc/server/server.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config-docker.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/config-docker.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/internal/repository/mock_doer.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/internal/repository/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/users/internal/repository/repository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/internal/repository/repository_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/users/internal/repository/userRepository_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/internal/usecase/mocks/mock_doer.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/internal/usecase/usecase.go" beforeDir="false" afterPath="$PROJECT_DIR$/users/internal/usecase/usecase.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +49,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../bank" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="go" />
   </component>
   <component name="RecentsManager">
@@ -100,10 +93,10 @@
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state x="578" y="359" width="753" height="392" key="#com.intellij.fileTypes.FileTypeChooser/0.28.1920.1052@0.28.1920.1052" timestamp="1637068214436" />
-    <state x="743" y="312" width="424" height="486" key="FileChooserDialogImpl" timestamp="1637500396132">
+    <state x="743" y="312" width="424" height="486" key="FileChooserDialogImpl" timestamp="1639044525124">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
-    <state x="743" y="312" width="424" height="486" key="FileChooserDialogImpl/0.28.1920.1052@0.28.1920.1052" timestamp="1637500396132" />
+    <state x="743" y="312" width="424" height="486" key="FileChooserDialogImpl/0.28.1920.1052@0.28.1920.1052" timestamp="1639044525124" />
     <state x="449" y="189" width="1022" height="732" key="SettingsEditor" timestamp="1637241430650">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
