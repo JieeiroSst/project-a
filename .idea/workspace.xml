@@ -2,17 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e5241c6f-13fd-43c2-8971-c3cfa54ad157" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/model/post.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/post/internal/grpc/api/proto/service.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/post/internal/grpc/pkg/api/service.pb.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/post/internal/grpc/pkg/delivery/grpc.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/post/internal/grpc/pkg/repository/repository.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/post/internal/grpc/pkg/router/router.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/post/internal/grpc/pkg/usecase/usecase.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/post/internal/grpc/server/server.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post/internal/search/internal/delivery/http.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post/internal/search/internal/http/http.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post/internal/search/internal/proto/service.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post/internal/search/internal/proto/service.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post/internal/search/internal/repository/repository.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post/internal/search/internal/router/router.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post/internal/search/internal/usecase/usecase.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,9 +100,9 @@
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state x="449" y="189" width="1022" height="732" key="SettingsEditor/0.28.1920.1052@0.28.1920.1052" timestamp="1637241430650" />
-    <state x="623" y="260" width="672" height="678" key="search.everywhere.popup" timestamp="1637069520996">
+    <state x="623" y="260" width="672" height="678" key="search.everywhere.popup" timestamp="1640919366530">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
-    <state x="623" y="260" width="672" height="678" key="search.everywhere.popup/0.28.1920.1052@0.28.1920.1052" timestamp="1637069520996" />
+    <state x="623" y="260" width="672" height="678" key="search.everywhere.popup/0.28.1920.1052@0.28.1920.1052" timestamp="1640919366530" />
   </component>
 </project>

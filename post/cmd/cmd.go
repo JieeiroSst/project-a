@@ -19,14 +19,14 @@ type serverGrpcPost struct {
 }
 
 type ServerGrpcPost interface {
-	Run() error
+	RunServerGrpc() error
 }
 
 func NewServerGrpcPost() ServerGrpcPost {
 	return &serverGrpcPost{}
 }
 
-func (s *serverGrpcPost) Run() error {
+func (s *serverGrpcPost) RunServerGrpc() error {
 	conf, err := config.ReadConf("config/conf-docker.yml")
 	if err != nil {
 		log.NewLog().Error(err.Error())

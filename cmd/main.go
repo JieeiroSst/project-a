@@ -80,7 +80,7 @@ func main(){
 	}()
 
 	go func() {
-		if err := postGrpc.Run(); err != nil {
+		if err := postGrpc.RunServerGrpc(); err != nil {
 			log.NewLog().Errorf("run port port grpc failed port %s: ",conf.Server.PortServer)
 		}
 	}()
