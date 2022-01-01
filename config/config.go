@@ -17,6 +17,7 @@ type Config struct {
 	CasbinMysql     CasbinMysql
 	AmazonS3        AmazonS3
 	Prometheus      Prometheus
+	Elasticsearch   ElasticsearchConfig
 }
 
 type ServerConfig struct {
@@ -83,6 +84,10 @@ type AmazonS3 struct {
 
 type Prometheus struct {
 	PrometheusPushgateway string
+}
+
+type ElasticsearchConfig struct {
+	Dns string
 }
 
 func ReadConf(filename string) (*Config, error) {

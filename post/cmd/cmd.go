@@ -3,6 +3,7 @@ package cmd
 import (
 	"fmt"
 	"github.com/JieeiroSst/itjob/config"
+	"github.com/JieeiroSst/itjob/pkg/elasticsearch"
 	"github.com/JieeiroSst/itjob/pkg/log"
 	"github.com/JieeiroSst/itjob/pkg/mysql"
 	"github.com/JieeiroSst/itjob/post/internal/grpc/pkg/api"
@@ -20,6 +21,7 @@ type serverGrpcPost struct {
 
 type ServerGrpcPost interface {
 	RunServerGrpc() error
+	RunClientGRPC() error
 }
 
 func NewServerGrpcPost() ServerGrpcPost {
@@ -60,3 +62,12 @@ func (s *serverGrpcPost) RunServerGrpc() error {
 	return nil
 }
 
+func (s *serverGrpcPost) RunClientGRPC() error {
+	conf, err := config.ReadConf("config/conf-docker.yml")
+	if err != nil {
+		log.NewLog().Error(err.Error())
+	}
+	elasticsearchConn :=elasticsearch.NewGetElasticsearchConn(conf.Elasticsearch.Dns)
+
+
+}
