@@ -3,7 +3,6 @@ package router
 import (
 	"github.com/JieeiroSst/itjob/config"
 	"github.com/JieeiroSst/itjob/post/internal/search/internal/delivery"
-	"github.com/JieeiroSst/itjob/post/internal/search/internal/http"
 	"github.com/JieeiroSst/itjob/post/internal/search/internal/proto"
 	"github.com/gin-gonic/gin"
 	"google.golang.org/grpc"
