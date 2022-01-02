@@ -61,6 +61,10 @@ func main(){
 
 	postGrpc := postCMD.NewServerGrpcPost(router)
 
+	if err := postGrpc.RunClientGRPC(); err != nil {
+		log.NewLog().Error("run client post failed")
+	}
+
 	if err := userMain.Run(); err != nil {
 		log.NewLog().Error("run server user failed")
 	}
