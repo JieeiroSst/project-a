@@ -2,8 +2,8 @@ package http
 
 import (
 	"context"
-	"github.com/JieeiroSst/itjob/post/internal/search/internal/proto"
-	"github.com/JieeiroSst/itjob/post/internal/search/internal/usecase"
+	"github.com/JieeiroSst/itjob/post/internal/search/proto"
+	"github.com/JieeiroSst/itjob/post/internal/search/usecase"
 )
 
 type ElasticsearcHttp interface {

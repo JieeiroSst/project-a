@@ -2,8 +2,8 @@ package usecase
 
 import (
 	"context"
-	"github.com/JieeiroSst/itjob/post/internal/search/internal/proto"
-	"github.com/JieeiroSst/itjob/post/internal/search/internal/repository"
+	"github.com/JieeiroSst/itjob/post/internal/search/proto"
+	"github.com/JieeiroSst/itjob/post/internal/search/repository"
 )
 
 type elasticsearchUsecase struct {

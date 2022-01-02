@@ -2,8 +2,8 @@ package delivery
 
 import (
 	"context"
-	"github.com/JieeiroSst/itjob/post/internal/search/internal/http"
-	"github.com/JieeiroSst/itjob/post/internal/search/internal/proto"
+	"github.com/JieeiroSst/itjob/post/internal/search/http"
+	"github.com/JieeiroSst/itjob/post/internal/search/proto"
 )
 
 type elasticsearcDelivery struct {

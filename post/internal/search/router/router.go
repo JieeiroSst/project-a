@@ -2,8 +2,8 @@ package router
 
 import (
 	"github.com/JieeiroSst/itjob/config"
-	"github.com/JieeiroSst/itjob/post/internal/search/internal/delivery"
-	"github.com/JieeiroSst/itjob/post/internal/search/internal/proto"
+	"github.com/JieeiroSst/itjob/post/internal/search/delivery"
+	"github.com/JieeiroSst/itjob/post/internal/search/proto"
 	"github.com/gin-gonic/gin"
 	"google.golang.org/grpc"
 	"log"
@@ -19,9 +19,10 @@ type ElasticsearcRouter interface {
 	Query(c *gin.Context)
 }
 
-func NewElasticsearcRouter(delivery delivery.ElasticsearcDelivery) ElasticsearcRouter {
+func NewElasticsearcRouter(delivery delivery.ElasticsearcDelivery,config *config.Config) ElasticsearcRouter {
 	return &elasticsearcRouter{
 		delivery:delivery,
+		config:config,
 	}
 }
 
@@ -33,7 +34,7 @@ func(e *elasticsearcRouter) InsertPost(c *gin.Context) {
 	}
 	log.Printf("CLIENT IS DIAL AT %s...", e.config.Server.PprofPort)
 
-	client:=proto.NewHandleServiceClient(conn)
+	client:= proto.NewHandleServiceClient(conn)
 	req :=&proto.RequestPost{}
 	data,err:=client.UpdatePost(c,req)
 	if err!=nil{

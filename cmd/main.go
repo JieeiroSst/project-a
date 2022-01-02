@@ -59,7 +59,7 @@ func main(){
 	casbinCMD := casbinCMD.NewCasbinCMD(router)
 	uploadCMD := uploadCMD.NewUploadCMD(router)
 
-	postGrpc := postCMD.NewServerGrpcPost()
+	postGrpc := postCMD.NewServerGrpcPost(router)
 
 	if err := userMain.Run(); err != nil {
 		log.NewLog().Error("run server user failed")

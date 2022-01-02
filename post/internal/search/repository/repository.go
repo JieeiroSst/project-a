@@ -2,7 +2,7 @@ package repository
 
 import (
 	"context"
-	"github.com/JieeiroSst/itjob/post/internal/search/internal/proto"
+	"github.com/JieeiroSst/itjob/post/internal/search/proto"
 	gonanoid "github.com/matoous/go-nanoid/v2"
 	"github.com/olivere/elastic/v7"
 	"log"
@@ -19,11 +19,11 @@ type elasticisesRepository struct {
 }
 
 
-func NewElasticsearchInterface(elastic *elastic.Client) ElasticisesRepository {
+func NewElasticsearchRepository(elastic *elastic.Client) ElasticisesRepository {
 	return &elasticisesRepository{elastic: elastic}
 }
 
-func (e *elasticisesRepository) Insert(ctx context.Context,data  proto.Post) error{
+func (e *elasticisesRepository) Insert(ctx context.Context,data proto.Post) error{
 	id, err := gonanoid.New()
 	put1, err := e.elastic.Index().
 		Index("posts").

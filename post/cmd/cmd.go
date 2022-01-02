@@ -11,12 +11,18 @@ import (
 	"github.com/JieeiroSst/itjob/post/internal/grpc/pkg/repository"
 	"github.com/JieeiroSst/itjob/post/internal/grpc/pkg/router"
 	"github.com/JieeiroSst/itjob/post/internal/grpc/pkg/usecase"
+	searchDelivery "github.com/JieeiroSst/itjob/post/internal/search/delivery"
+	searchHttp "github.com/JieeiroSst/itjob/post/internal/search/http"
+	searchRepository "github.com/JieeiroSst/itjob/post/internal/search/repository"
+	searchRouter "github.com/JieeiroSst/itjob/post/internal/search/router"
+	searchUsecase "github.com/JieeiroSst/itjob/post/internal/search/usecase"
+	"github.com/gin-gonic/gin"
 	"google.golang.org/grpc"
 	"net"
 )
 
 type serverGrpcPost struct {
-
+	engine *gin.Engine
 }
 
 type ServerGrpcPost interface {
@@ -24,11 +30,14 @@ type ServerGrpcPost interface {
 	RunClientGRPC() error
 }
 
-func NewServerGrpcPost() ServerGrpcPost {
-	return &serverGrpcPost{}
+func NewServerGrpcPost(engine *gin.Engine) ServerGrpcPost {
+	return &serverGrpcPost{
+		engine:engine,
+	}
 }
 
 func (s *serverGrpcPost) RunServerGrpc() error {
+
 	conf, err := config.ReadConf("config/conf-docker.yml")
 	if err != nil {
 		log.NewLog().Error(err.Error())
@@ -68,6 +77,14 @@ func (s *serverGrpcPost) RunClientGRPC() error {
 		log.NewLog().Error(err.Error())
 	}
 	elasticsearchConn :=elasticsearch.NewGetElasticsearchConn(conf.Elasticsearch.Dns)
+	searchRepository := searchRepository.NewElasticsearchRepository(elasticsearchConn)
+	searcgUsecase := searchUsecase.NewElasticsearchUsecase(searchRepository)
+	searchHttp := searchHttp.NewHttp(searcgUsecase)
+	searchDelivery := searchDelivery.NewElasticsearcDelivery(searchHttp)
+	searchRouter :=searchRouter.NewElasticsearcRouter(searchDelivery,conf)
+	group := s.engine.Group("/")
+	group.GET("/", searchRouter.Query)
+	group.POST("/search",searchRouter.InsertPost)
 
-
+	return nil
 }
