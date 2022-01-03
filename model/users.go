@@ -14,7 +14,8 @@ type Users struct {
 	Checked  		bool   		`json:"checked"`
 	CreateTime 		time.Time	`json:"create_time"`
 	UpdateTime 		time.Time	`json:"update_time" gorm:"default:null"`
-	Image           Image		`gorm:"foreignKey:UserRefer"`
+	Images          []Image		`gorm:"foreignKey:UserRefer"`
+	Posts           []Posts     `gorm:"foreignKey:AuthorId"`
 }
 
 type Login struct {
