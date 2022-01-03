@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e5241c6f-13fd-43c2-8971-c3cfa54ad157" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/migrate/migrate.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="e5241c6f-13fd-43c2-8971-c3cfa54ad157" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,7 +37,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../skyMavis_test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pkg" />
     <property name="settings.editor.selected.configurable" value="go" />
   </component>
   <component name="RecentsManager">
