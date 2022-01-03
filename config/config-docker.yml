@@ -54,3 +54,9 @@ prometheus:
 
 elasticsearch:
   dns: http://127.0.0.1:9200
+
+email:
+  NameEmail: chmp.7399@gmail.com
+  PasswordEmail: "#############"
+  Port: 587
+  Host: "smtp.gmail.com"

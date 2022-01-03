@@ -31,6 +31,8 @@ require (
 	golang.org/x/time v0.0.0-20211116232009-f0f3c7e86c11
 	google.golang.org/grpc v1.33.2
 	google.golang.org/protobuf v1.26.0
+	gopkg.in/alexcesaro/quotedprintable.v3 v3.0.0-20150716171945-2caba252f4dc // indirect
+	gopkg.in/mail.v2 v2.3.1
 	gorm.io/driver/mysql v1.1.3
 	gorm.io/driver/postgres v1.2.1
 	gorm.io/gorm v1.22.2

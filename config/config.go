@@ -18,6 +18,7 @@ type Config struct {
 	AmazonS3        AmazonS3
 	Prometheus      Prometheus
 	Elasticsearch   ElasticsearchConfig
+	Email           Email
 }
 
 type ServerConfig struct {
@@ -79,7 +80,7 @@ type TwilioService struct {
 type AmazonS3 struct {
 	S3Region string
 	S3Bucket string
-	S3ACL   string
+	S3ACL    string
 }
 
 type Prometheus struct {
@@ -88,6 +89,13 @@ type Prometheus struct {
 
 type ElasticsearchConfig struct {
 	Dns string
+}
+
+type Email struct {
+	NameEmail     string
+	PasswordEmail string
+	Port          string
+	Host          string
 }
 
 func ReadConf(filename string) (*Config, error) {

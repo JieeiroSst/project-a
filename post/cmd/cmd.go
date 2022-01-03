@@ -37,7 +37,6 @@ func NewServerGrpcPost(engine *gin.Engine) ServerGrpcPost {
 }
 
 func (s *serverGrpcPost) RunServerGrpc() error {
-
 	conf, err := config.ReadConf("config/conf-docker.yml")
 	if err != nil {
 		log.NewLog().Error(err.Error())

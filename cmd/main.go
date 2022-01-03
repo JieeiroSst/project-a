@@ -5,6 +5,7 @@ import (
 	casbinCMD "github.com/JieeiroSst/itjob/casbin/cmd"
 	"github.com/JieeiroSst/itjob/config"
 	dbCMD "github.com/JieeiroSst/itjob/db/cmd"
+	emailCMD "github.com/JieeiroSst/itjob/email/cmd"
 	"github.com/JieeiroSst/itjob/pkg/log"
 	"github.com/JieeiroSst/itjob/pkg/metric"
 	postCMD "github.com/JieeiroSst/itjob/post/cmd"
@@ -58,6 +59,7 @@ func main(){
 	userMain := userCMD.NewUserMain(router)
 	casbinCMD := casbinCMD.NewCasbinCMD(router)
 	uploadCMD := uploadCMD.NewUploadCMD(router)
+	emailCMD := emailCMD.NewEmailCMD(router)
 
 	postGrpc := postCMD.NewServerGrpcPost(router)
 
@@ -75,6 +77,10 @@ func main(){
 
 	if err := uploadCMD.Run(); err != nil {
 		log.NewLog().Error("run server upload failed")
+	}
+
+	if err := emailCMD.RunEmailCMD(); err != nil {
+		log.NewLog().Error("run server email failed")
 	}
 
 	go func() {
