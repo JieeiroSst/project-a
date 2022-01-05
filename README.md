@@ -60,3 +60,53 @@ sampleLoop:
 
 
 open premission send email . https://myaccount.google.com/u/0/lesssecureapps
+
+
+. call rabbitmq
+```
+func (e *EmailServer) Run() {
+	emailsPublisher, err := rabbitmq.NewEmailsPublisher(e.cfg)
+	if err != nil {
+		log.Println("Emails Publisher can't initialized")
+	}
+	defer emailsPublisher.CloseChan()
+
+	err = emailsPublisher.SetupExchangeAndQueue(
+		e.cfg.RabbitMQ.Exchange,
+		e.cfg.RabbitMQ.Queue,
+		e.cfg.RabbitMQ.RoutingKey,
+		e.cfg.RabbitMQ.ConsumerTag, )
+	if err!=nil{
+		log.Println(err)
+	}
+
+	repo:=repository.NewEmailRepository(e.db,*e.snowflake)
+	usecase:=usecase.NewEmailUseCase(repo,emailsPublisher,*e.utils,*e.emailPkg)
+	http.NewHttp(e.server,usecase)
+	emailsAmqpConsumer := rabbitmq.NewImagesConsumer(e.amqpConn, usecase,e.cfg)
+
+	ctx, cancel := context.WithCancel(context.Background())
+
+	go func() {
+		err := emailsAmqpConsumer.StartConsumer(
+			e.cfg.RabbitMQ.WorkerPoolSize,
+			e.cfg.RabbitMQ.Exchange,
+			e.cfg.RabbitMQ.Queue,
+			e.cfg.RabbitMQ.RoutingKey,
+			e.cfg.RabbitMQ.ConsumerTag,
+		)
+		if err != nil {
+			cancel()
+		}
+	}()
+
+	quit := make(chan os.Signal, 1)
+	signal.Notify(quit, os.Interrupt, syscall.SIGTERM)
+	select {
+	case v := <-quit:
+		log.Printf("signal.Notify: %v", v)
+	case done := <-ctx.Done():
+		log.Printf("ctx.Done: %v", done)
+	}
+}
+```
