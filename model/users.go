@@ -16,9 +16,10 @@ type Users struct {
 	UpdateTime 		time.Time	`json:"update_time" gorm:"default:null"`
 	Images          []Image		`gorm:"foreignKey:UserRefer"`
 	Posts           []Posts     `gorm:"foreignKey:AuthorId"`
+	Profile         Profiles    `gorm:"foreignKey:UserId"`
 }
 
 type Login struct {
-	Username string 	`json:"username"`
-	Password string 	`json:"password"`
+	Username 		string 		`json:"username"`
+	Password 		string 		`json:"password"`
 }

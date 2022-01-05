@@ -8,3 +8,9 @@ type Pagination struct {
 	TotalPages   int         `json:"total_pages"`
 	Rows         interface{} `json:"rows"`
 }
+
+type PaginationPage struct {
+	Limit 		int    `json:"limit"`
+	Page  		int    `json:"page"`
+	Sort  		string `json:"sort"`
+}

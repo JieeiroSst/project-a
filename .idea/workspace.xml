@@ -2,7 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e5241c6f-13fd-43c2-8971-c3cfa54ad157" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/model/category.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/post_comments.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/post_metas.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/profile.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post/internal/query/delivery/http.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post/internal/query/repository/repository.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post/internal/query/router/router.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post/internal/query/server/server.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post/internal/query/usecase/usecase.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/pagination.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/pagination.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/pagination.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/post.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/post.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/users.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/users.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,19 +56,19 @@
     <property name="settings.editor.selected.configurable" value="go" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/pkg" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/users" />
-      <recent name="$PROJECT_DIR$/access_control" />
-      <recent name="$PROJECT_DIR$/config" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/pkg/migrate" />
       <recent name="$PROJECT_DIR$/post/internal/search" />
       <recent name="$PROJECT_DIR$/db/migration" />
       <recent name="$PROJECT_DIR$/casbin/internal" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pkg" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/users" />
+      <recent name="$PROJECT_DIR$/access_control" />
+      <recent name="$PROJECT_DIR$/config" />
     </key>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -93,6 +106,14 @@
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state x="449" y="189" width="1022" height="732" key="SettingsEditor/0.28.1920.1052@0.28.1920.1052" timestamp="1637241430650" />
+    <state x="731" y="263" width="448" height="583" key="com.goide.refactor.move.GoMoveDeclarationDialog" timestamp="1641394031521">
+      <screen x="0" y="28" width="1920" height="1052" />
+    </state>
+    <state x="731" y="263" width="448" height="583" key="com.goide.refactor.move.GoMoveDeclarationDialog/0.28.1920.1052@0.28.1920.1052" timestamp="1641394031521" />
+    <state x="705" y="173" width="500" height="763" key="refactoring.ChangeSignatureDialog" timestamp="1641394340739">
+      <screen x="0" y="28" width="1920" height="1052" />
+    </state>
+    <state x="705" y="173" width="500" height="763" key="refactoring.ChangeSignatureDialog/0.28.1920.1052@0.28.1920.1052" timestamp="1641394340739" />
     <state x="623" y="260" width="672" height="678" key="search.everywhere.popup" timestamp="1640919366530">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
