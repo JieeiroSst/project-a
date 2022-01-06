@@ -41,11 +41,11 @@ func (s *casbinServer) Run() error {
 		resourceCasbin:=resource.Group("/casbin")
 
 		resourceCasbin.POST("",s.auth.Authorize("/api/casbin/*","POST",adapter),s.router.CreateCasbinRule)
-		resourceCasbin.PUT("/:id",s.auth.Authorize("/api/casbin/*","POST",adapter),s.router.UpdateCasbinRulePtype)
-		resourceCasbin.GET("",s.auth.Authorize("/api/casbin/*","POST",adapter),s.router.CasbinRuleAll)
-		resourceCasbin.GET("/:id",s.auth.Authorize("/api/casbin/*","POST",adapter),s.router.CasbinRuleById)
-		resourceCasbin.GET("/option",s.auth.Authorize("/api/casbin/*","POST",adapter),s.router.OptionList)
-		resourceCasbin.DELETE("/:id",s.auth.Authorize("/api/casbin/*","POST",adapter),s.router.DeleteCasbinRule)
+		resourceCasbin.PUT("/:id",s.auth.Authorize("/api/casbin/*","PUT",adapter),s.router.UpdateCasbinRulePtype)
+		resourceCasbin.GET("",s.auth.Authorize("/api/casbin/*","GET",adapter),s.router.CasbinRuleAll)
+		resourceCasbin.GET("/:id",s.auth.Authorize("/api/casbin/*","GET",adapter),s.router.CasbinRuleById)
+		resourceCasbin.GET("/option",s.auth.Authorize("/api/casbin/*","GET",adapter),s.router.OptionList)
+		resourceCasbin.DELETE("/:id",s.auth.Authorize("/api/casbin/*","DELETE",adapter),s.router.DeleteCasbinRule)
 	}
 
 	return nil

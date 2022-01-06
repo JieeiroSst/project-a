@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e5241c6f-13fd-43c2-8971-c3cfa54ad157" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/model/category.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/post_comments.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/post_metas.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/profile.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/post/internal/query/delivery/http.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/post/internal/query/repository/repository.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/post/internal/query/router/router.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/post/internal/query/server/server.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/post/internal/query/usecase/usecase.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/pagination.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/pagination.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/pagination.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/post.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/post.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/users.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/users.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/casbin/internal/server/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/casbin/internal/server/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post/internal/query/server/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/post/internal/query/server/server.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,9 +103,9 @@
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state x="705" y="173" width="500" height="763" key="refactoring.ChangeSignatureDialog/0.28.1920.1052@0.28.1920.1052" timestamp="1641394340739" />
-    <state x="623" y="260" width="672" height="678" key="search.everywhere.popup" timestamp="1640919366530">
+    <state x="623" y="260" width="672" height="678" key="search.everywhere.popup" timestamp="1641402309483">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
-    <state x="623" y="260" width="672" height="678" key="search.everywhere.popup/0.28.1920.1052@0.28.1920.1052" timestamp="1640919366530" />
+    <state x="623" y="260" width="672" height="678" key="search.everywhere.popup/0.28.1920.1052@0.28.1920.1052" timestamp="1641402309483" />
   </component>
 </project>
