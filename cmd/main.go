@@ -73,6 +73,10 @@ func main(){
 		log.NewLog().Error("run client post failed")
 	}
 
+	if err := postGrpc.RunQuery(); err != nil {
+		log.NewLog().Error("run query post failed")
+	}
+
 	if err := userMain.Run(); err != nil {
 		log.NewLog().Error("run server user failed")
 	}
