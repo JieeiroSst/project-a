@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"fmt"
 	"github.com/JieeiroSst/itjob/model"
 	"github.com/gin-gonic/gin"
 	"strconv"
@@ -19,9 +20,16 @@ func NewPaginationPage() PaginationPage {
 }
 
 func (p *paginationPage) GeneratePaginationFromRequest(c *gin.Context) model.PaginationPage {
-	limit := 2
-	page := 1
-	sort := "created_at asc"
+	limit, err  := strconv.Atoi(c.Query("limit"))
+	if err != nil {
+		return model.PaginationPage{}
+	}
+	page, err := strconv.Atoi(c.Query("page"))
+	if err != nil {
+		return model.PaginationPage{}
+	}
+
+	sort := fmt.Sprintf("created_at %s", c.Query("sort"))
 	query := c.Request.URL.Query()
 	for key, value := range query {
 		queryValue := value[len(value)-1]
