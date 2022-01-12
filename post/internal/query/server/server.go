@@ -37,6 +37,11 @@ func (p *postServer) RunServer() error {
 
 	resource := p.engine.Group("/api")
 
+	resourceGuest := resource.Group("/guest")
+
+	resourceGuest.GET("/post", p.router.PostsAll)
+
+
 	resource.Use(p.accessControl.Authenticate())
 	{
 		resourceWriter := resource.Group("/writer")
@@ -73,7 +78,7 @@ func (p *postServer) RunServer() error {
 
 		resourceClient := resource.Group("/client")
 
-		resourceClient.POST("/post", p.accessControl.Authorize("/api/client/*","POST", adapter), p.router.PostsAll)
+		resourceClient.GET("/post", p.accessControl.Authorize("/api/client/*","GET", adapter), p.router.PostsAll)
 
 		resourceClient.POST("/comment", p.accessControl.Authorize("/api/client/*","POST", adapter), p.router.CreateComment)
 
