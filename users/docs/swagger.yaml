@@ -1,0 +1,76 @@
+info:
+  contact: {}
+paths:
+  /v1//update/profile:
+    post:
+      consumes:
+      - application/json
+      description: LockAccount account
+      parameters:
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              additionalProperties: true
+              type: object
+            type: array
+      summary: LockAccount Account
+  /v1/login:
+    post:
+      consumes:
+      - application/json
+      description: login account
+      parameters:
+      - description: username in json login
+        in: query
+        name: username
+        type: string
+      - description: password in json login
+        in: query
+        name: password
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              additionalProperties: true
+              type: object
+            type: array
+      summary: Login Account
+  /v1/register:
+    post:
+      consumes:
+      - application/json
+      description: SignUp account
+      parameters:
+      - description: username in json login
+        in: query
+        name: username
+        type: string
+      - description: password in json login
+        in: query
+        name: password
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              additionalProperties: true
+              type: object
+            type: array
+      summary: SignUp Account
+swagger: "2.0"

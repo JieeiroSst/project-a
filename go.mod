@@ -3,6 +3,7 @@ module github.com/JieeiroSst/itjob
 go 1.15
 
 require (
+	github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751
 	github.com/allegro/bigcache v1.2.1
 	github.com/aws/aws-sdk-go v1.40.43
 	github.com/bwmarrin/snowflake v0.3.0
@@ -17,12 +18,18 @@ require (
 	github.com/go-redis/redis/v8 v8.11.4
 	github.com/golang/mock v1.6.0
 	github.com/golang/protobuf v1.5.2
+	github.com/google/uuid v1.1.2
 	github.com/hhkbp2/go-logging v0.3.6
 	github.com/long2ice/swagin v0.1.0
 	github.com/matoous/go-nanoid/v2 v2.0.0
 	github.com/olivere/elastic/v7 v7.0.29
+	github.com/opentracing/opentracing-go v1.2.0
+	github.com/pkg/errors v0.9.1
 	github.com/prometheus/client_golang v1.11.0
 	github.com/streadway/amqp v1.0.0
+	github.com/swaggo/files v0.0.0-20210815190702-a29dd2bc99b2
+	github.com/swaggo/gin-swagger v1.3.3
+	github.com/swaggo/swag v1.7.8
 	github.com/twilio/twilio-go v0.17.0
 	github.com/ugorji/go v1.2.1 // indirect
 	golang.org/x/crypto v0.0.0-20210921155107-089bfa567519
