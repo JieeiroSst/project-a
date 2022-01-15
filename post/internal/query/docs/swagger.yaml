@@ -1,0 +1,621 @@
+info:
+  contact: {}
+paths:
+  /v1/admin//post/publish:
+    post:
+      consumes:
+      - application/json
+      description: PublishPost account
+      parameters:
+      - description: User ID
+        in: query
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              additionalProperties: true
+              type: object
+            type: array
+      summary: PublishPost Account
+  /v1/admin/category:
+    delete:
+      consumes:
+      - application/json
+      description: DeleteCategories account
+      parameters:
+      - description: category ID
+        in: query
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              additionalProperties: true
+              type: object
+            type: array
+      summary: DeleteCategories Account
+    get:
+      consumes:
+      - application/json
+      description: CategoriesAll account
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              additionalProperties: true
+              type: object
+            type: array
+      summary: CategoriesAll Account
+    post:
+      consumes:
+      - application/json
+      description: CreateCategories account
+      parameters:
+      - description: ParentId in json category
+        in: query
+        name: ParentId
+        type: string
+      - description: Title in json category
+        in: query
+        name: Title
+        type: string
+      - description: MetaTitle in json category
+        in: query
+        name: MetaTitle
+        type: string
+      - description: Slug in json category
+        in: query
+        name: Slug
+        type: string
+      - description: Content in json category
+        in: query
+        name: Content
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              additionalProperties: true
+              type: object
+            type: array
+      summary: CreateCategories Account
+    put:
+      consumes:
+      - application/json
+      description: UpdateCategories account
+      parameters:
+      - description: Category ID
+        in: query
+        name: id
+        required: true
+        type: integer
+      - description: ParentId in json category
+        in: query
+        name: ParentId
+        type: string
+      - description: Title in json category
+        in: query
+        name: Title
+        type: string
+      - description: MetaTitle in json category
+        in: query
+        name: MetaTitle
+        type: string
+      - description: Slug in json category
+        in: query
+        name: Slug
+        type: string
+      - description: Content in json category
+        in: query
+        name: Content
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              additionalProperties: true
+              type: object
+            type: array
+      summary: UpdateCategories Account
+  /v1/admin/post-metas:
+    delete:
+      consumes:
+      - application/json
+      description: DeletePostMetas account
+      parameters:
+      - description: Post-metas ID
+        in: query
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              additionalProperties: true
+              type: object
+            type: array
+      summary: DeletePostMetas Account
+    get:
+      consumes:
+      - application/json
+      description: PostMetasAll account
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              additionalProperties: true
+              type: object
+            type: array
+      summary: PostMetasAll Account
+    post:
+      consumes:
+      - application/json
+      description: CreatePostMetas account
+      parameters:
+      - description: PostId in json post-metas
+        in: query
+        name: PostId
+        type: string
+      - description: TextKey in json post-metas
+        in: query
+        name: TextKey
+        type: string
+      - description: Content in json post-metas
+        in: query
+        name: Content
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              additionalProperties: true
+              type: object
+            type: array
+      summary: CreatePostMetas Account
+    put:
+      consumes:
+      - application/json
+      description: UpdatePostMetas account
+      parameters:
+      - description: Post-metas ID
+        in: query
+        name: id
+        required: true
+        type: integer
+      - description: PostId in json post-metas
+        in: query
+        name: PostId
+        type: string
+      - description: TextKey in json post-metas
+        in: query
+        name: TextKey
+        type: string
+      - description: Content in json post-metas
+        in: query
+        name: Content
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              additionalProperties: true
+              type: object
+            type: array
+      summary: UpdatePostMetas Account
+  /v1/admin/post/list/not/publish:
+    get:
+      consumes:
+      - application/json
+      description: ListNotPublishPost account
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              additionalProperties: true
+              type: object
+            type: array
+      summary: ListNotPublishPost Account
+  /v1/admin/post/list/publish:
+    get:
+      consumes:
+      - application/json
+      description: ListPublishPost account
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              additionalProperties: true
+              type: object
+            type: array
+      summary: ListPublishPost Account
+  /v1/admin/profile:
+    get:
+      consumes:
+      - application/json
+      description: ProfileAll account
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              additionalProperties: true
+              type: object
+            type: array
+      summary: ProfileAll Account
+  /v1/client/comment:
+    delete:
+      consumes:
+      - application/json
+      description: RemoveComment account
+      parameters:
+      - description: User ID
+        in: query
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              additionalProperties: true
+              type: object
+            type: array
+      summary: RemoveComment Account
+    get:
+      consumes:
+      - application/json
+      description: CommentAllPost account
+      parameters:
+      - description: User ID
+        in: query
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              additionalProperties: true
+              type: object
+            type: array
+      summary: CommentAllPost Account
+    post:
+      consumes:
+      - application/json
+      description: CreateComment account
+      parameters:
+      - description: PostId in json Post
+        in: query
+        name: PostId
+        type: string
+      - description: ParentId in json Post
+        in: query
+        name: ParentId
+        type: string
+      - description: Title in json Post
+        in: query
+        name: Title
+        type: string
+      - description: Content in json Post
+        in: query
+        name: Content
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              additionalProperties: true
+              type: object
+            type: array
+      summary: CreateComment Account
+  /v1/client/post:
+    get:
+      consumes:
+      - application/json
+      description: PostsAll account
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              additionalProperties: true
+              type: object
+            type: array
+      summary: PostsAll Account
+  /v1/client/profile:
+    get:
+      consumes:
+      - application/json
+      description: ProfileById account
+      parameters:
+      - description: profile ID
+        in: query
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              additionalProperties: true
+              type: object
+            type: array
+      summary: ProfileById Account
+    post:
+      consumes:
+      - application/json
+      description: CreateProfile account
+      parameters:
+      - description: username in json profile
+        in: query
+        name: UserId
+        type: string
+      - description: FirstName in json profile
+        in: query
+        name: FirstName
+        type: string
+      - description: MiddleName in json profile
+        in: query
+        name: MiddleName
+        type: string
+      - description: LastName in json profile
+        in: query
+        name: LastName
+        type: string
+      - description: Mobile in json profile
+        in: query
+        name: Mobile
+        type: string
+      - description: Email in json profile
+        in: query
+        name: Email
+        type: string
+      - description: Profile in json profile
+        in: query
+        name: Profile
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              additionalProperties: true
+              type: object
+            type: array
+      summary: CreateProfile Account
+    put:
+      consumes:
+      - application/json
+      description: UpdateProfile account
+      parameters:
+      - description: Profile ID
+        in: query
+        name: id
+        required: true
+        type: integer
+      - description: username in json profile
+        in: query
+        name: UserId
+        type: string
+      - description: FirstName in json profile
+        in: query
+        name: FirstName
+        type: string
+      - description: MiddleName in json profile
+        in: query
+        name: MiddleName
+        type: string
+      - description: LastName in json profile
+        in: query
+        name: LastName
+        type: string
+      - description: Mobile in json profile
+        in: query
+        name: Mobile
+        type: string
+      - description: Email in json profile
+        in: query
+        name: Email
+        type: string
+      - description: Profile in json profile
+        in: query
+        name: Profile
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              additionalProperties: true
+              type: object
+            type: array
+      summary: UpdateProfile Account
+  /v1/write/post:
+    delete:
+      consumes:
+      - application/json
+      description: DeletePosts account
+      parameters:
+      - description: User ID
+        in: query
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              additionalProperties: true
+              type: object
+            type: array
+      summary: DeletePosts Account
+    post:
+      consumes:
+      - application/json
+      description: CreatePosts account
+      parameters:
+      - description: AuthorId in json post
+        in: query
+        name: AuthorId
+        type: string
+      - description: Title in json post
+        in: query
+        name: Title
+        type: string
+      - description: MetaTitle in json post
+        in: query
+        name: MetaTitle
+        type: string
+      - description: Slug in json post
+        in: query
+        name: Slug
+        type: string
+      - description: Summary in json post
+        in: query
+        name: Summary
+        type: string
+      - description: Content in json post
+        in: query
+        name: Content
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              additionalProperties: true
+              type: object
+            type: array
+      summary: CreatePosts Account
+  /v1/writer/post:
+    post:
+      consumes:
+      - application/json
+      description: PostsById account
+      parameters:
+      - description: Post ID
+        in: query
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              additionalProperties: true
+              type: object
+            type: array
+      summary: PostsById Account
+    put:
+      consumes:
+      - application/json
+      description: UpdatePosts account
+      parameters:
+      - description: Post ID
+        in: query
+        name: id
+        required: true
+        type: integer
+      - description: AuthorId in json post
+        in: query
+        name: AuthorId
+        type: string
+      - description: Title in json post
+        in: query
+        name: Title
+        type: string
+      - description: MetaTitle in json post
+        in: query
+        name: MetaTitle
+        type: string
+      - description: Slug in json post
+        in: query
+        name: Slug
+        type: string
+      - description: Summary in json post
+        in: query
+        name: Summary
+        type: string
+      - description: Content in json post
+        in: query
+        name: Content
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              additionalProperties: true
+              type: object
+            type: array
+      summary: UpdatePosts Account
+swagger: "2.0"

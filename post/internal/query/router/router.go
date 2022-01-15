@@ -52,6 +52,19 @@ func NewPostRouter(http delivery.PostHttp, pagination utils.PaginationPage,snowf
 	}
 }
 
+// CreatePosts godoc
+// @Summary CreatePosts Account
+// @Description CreatePosts account
+// @Accept  json
+// @Produce  json
+// @Param AuthorId query string false "AuthorId in json post"
+// @Param Title query string false "Title in json post"
+// @Param MetaTitle query string false "MetaTitle in json post"
+// @Param Slug query string false "Slug in json post"
+// @Param Summary query string false "Summary in json post"
+// @Param Content query string false "Content in json post"
+// @Success 200 {array} map[string]interface{}
+// @Router /v1/write/post [post]
 func (p *postRouter) CreatePosts(c *gin.Context) {
 	var request model.RequestPost
 	if err := c.ShouldBind(&request); err != nil {
@@ -88,6 +101,20 @@ func (p *postRouter) CreatePosts(c *gin.Context) {
 	})
 }
 
+// UpdatePosts godoc
+// @Summary UpdatePosts Account
+// @Description UpdatePosts account
+// @Accept  json
+// @Produce  json
+// @Param id query int true "Post ID"
+// @Param AuthorId query string false "AuthorId in json post"
+// @Param Title query string false "Title in json post"
+// @Param MetaTitle query string false "MetaTitle in json post"
+// @Param Slug query string false "Slug in json post"
+// @Param Summary query string false "Summary in json post"
+// @Param Content query string false "Content in json post"
+// @Success 200 {array} map[string]interface{}
+// @Router /v1/writer/post [put]
 func (p *postRouter) UpdatePosts(c *gin.Context) {
 	var request model.RequestPost
 	if err := c.ShouldBind(&request); err != nil {
@@ -97,7 +124,7 @@ func (p *postRouter) UpdatePosts(c *gin.Context) {
 		})
 		return
 	}
-	id, err := strconv.Atoi(c.Query("name"))
+	id, err := strconv.Atoi(c.Query("id"))
 	if err != nil {
 		c.JSON(400, gin.H{
 			"status": 400,
@@ -132,8 +159,16 @@ func (p *postRouter) UpdatePosts(c *gin.Context) {
 	})
 }
 
+// DeletePosts godoc
+// @Summary DeletePosts Account
+// @Description DeletePosts account
+// @Accept  json
+// @Produce  json
+// @Param id query int true "User ID"
+// @Success 200 {array} map[string]interface{}
+// @Router /v1/write/post [delete]
 func (p *postRouter) DeletePosts(c *gin.Context) {
-	id, err := strconv.Atoi(c.Query("name"))
+	id, err := strconv.Atoi(c.Query("id"))
 	if err != nil {
 		c.JSON(400, gin.H{
 			"status": 400,
@@ -155,6 +190,14 @@ func (p *postRouter) DeletePosts(c *gin.Context) {
 	})
 }
 
+// PostsById godoc
+// @Summary PostsById Account
+// @Description PostsById account
+// @Accept  json
+// @Produce  json
+// @Param id query int true "Post ID"
+// @Success 200 {array} map[string]interface{}
+// @Router /v1/writer/post [post]
 func (p *postRouter) PostsById(c *gin.Context) {
 	id, err := strconv.Atoi(c.Query("name"))
 	if err != nil {
@@ -180,6 +223,21 @@ func (p *postRouter) PostsById(c *gin.Context) {
 	})
 }
 
+// CreateProfile godoc
+// @Summary CreateProfile Account
+// @Description CreateProfile account
+// @Accept  json
+// @Produce  json
+// @Param UserId query string false "username in json profile"
+// @Param FirstName query string false "FirstName in json profile"
+// @Param MiddleName query string false "MiddleName in json profile"
+// @Param LastName query string false "LastName in json profile"
+// @Param Mobile query string false "Mobile in json profile"
+// @Param Email query string false "Email in json profile"
+// @Param Profile query string false "Profile in json profile"
+// @Success 200 {array} map[string]interface{}
+// @Router /v1/writer/profile [post]
+// @Router /v1/client/profile [post]
 func (p *postRouter) CreateProfile(c *gin.Context) {
 	var request model.RequestProfile
 	if err := c.ShouldBind(&request); err != nil {
@@ -217,6 +275,22 @@ func (p *postRouter) CreateProfile(c *gin.Context) {
 	})
 }
 
+// UpdateProfile godoc
+// @Summary UpdateProfile Account
+// @Description UpdateProfile account
+// @Accept  json
+// @Produce  json
+// @Param id query int true "Profile ID"
+// @Param UserId query string false "username in json profile"
+// @Param FirstName query string false "FirstName in json profile"
+// @Param MiddleName query string false "MiddleName in json profile"
+// @Param LastName query string false "LastName in json profile"
+// @Param Mobile query string false "Mobile in json profile"
+// @Param Email query string false "Email in json profile"
+// @Param Profile query string false "Profile in json profile"
+// @Success 200 {array} map[string]interface{}
+// @Router /v1/writer/profile [put]
+// @Router /v1/client/profile [put]
 func (p *postRouter) UpdateProfile(c *gin.Context) {
 	var request model.RequestProfile
 	if err := c.ShouldBind(&request); err != nil {
@@ -259,6 +333,15 @@ func (p *postRouter) UpdateProfile(c *gin.Context) {
 	})
 }
 
+// ProfileById godoc
+// @Summary ProfileById Account
+// @Description ProfileById account
+// @Accept  json
+// @Produce  json
+// @Param id query int true "profile ID"
+// @Success 200 {array} map[string]interface{}
+// @Router /v1/write/profile [get]
+// @Router /v1/client/profile [get]
 func (p *postRouter) ProfileById(c *gin.Context) {
 	id, err := strconv.Atoi(c.Query("id"))
 	if err != nil {
@@ -285,6 +368,16 @@ func (p *postRouter) ProfileById(c *gin.Context) {
 	})
 }
 
+// CreatePostMetas godoc
+// @Summary CreatePostMetas Account
+// @Description CreatePostMetas account
+// @Accept  json
+// @Produce  json
+// @Param PostId query string false "PostId in json post-metas"
+// @Param TextKey query string false "TextKey in json post-metas"
+// @Param Content query string false "Content in json post-metas"
+// @Success 200 {array} map[string]interface{}
+// @Router /v1/admin/post-metas [post]
 func (p *postRouter) CreatePostMetas(c *gin.Context) {
 	var request model.RequestPostMetas
 	if err := c.ShouldBind(&request); err != nil {
@@ -316,6 +409,17 @@ func (p *postRouter) CreatePostMetas(c *gin.Context) {
 	})
 }
 
+// UpdatePostMetas godoc
+// @Summary UpdatePostMetas Account
+// @Description UpdatePostMetas account
+// @Accept  json
+// @Produce  json
+// @Param id query int true "Post-metas ID"
+// @Param PostId query string false "PostId in json post-metas"
+// @Param TextKey query string false "TextKey in json post-metas"
+// @Param Content query string false "Content in json post-metas"
+// @Success 200 {array} map[string]interface{}
+// @Router /v1/admin/post-metas [put]
 func (p *postRouter) UpdatePostMetas(c *gin.Context) {
 	var request model.RequestPostMetas
 	if err := c.ShouldBind(&request); err != nil {
@@ -354,6 +458,14 @@ func (p *postRouter) UpdatePostMetas(c *gin.Context) {
 	})
 }
 
+// DeletePostMetas godoc
+// @Summary DeletePostMetas Account
+// @Description DeletePostMetas account
+// @Accept  json
+// @Produce  json
+// @Param id query int true "Post-metas ID"
+// @Success 200 {array} map[string]interface{}
+// @Router /v1/admin/post-metas [delete]
 func (p *postRouter) DeletePostMetas(c *gin.Context) {
 	id ,err := strconv.Atoi(c.Query("id"))
 	if err != nil {
@@ -377,8 +489,16 @@ func (p *postRouter) DeletePostMetas(c *gin.Context) {
 	})
 }
 
+// PostMetasById godoc
+// @Summary PostMetasById Account
+// @Description PostMetasById account
+// @Accept  json
+// @Produce  json
+// @Param id path int true "Post-metas ID"
+// @Success 200 {array} map[string]interface{}
+// @Router /v1/admin/post-metas [get]
 func (p *postRouter) PostMetasById(c *gin.Context) {
-	id ,err := strconv.Atoi(c.Query("id"))
+	id ,err := strconv.Atoi(c.Param("id"))
 	if err != nil {
 		c.JSON(400, gin.H{
 			"status": 400,
@@ -402,6 +522,17 @@ func (p *postRouter) PostMetasById(c *gin.Context) {
 	})
 }
 
+// CreateComment godoc
+// @Summary CreateComment Account
+// @Description CreateComment account
+// @Accept  json
+// @Produce  json
+// @Param PostId query string false "PostId in json Post"
+// @Param ParentId query string false "ParentId in json Post"
+// @Param Title query string false "Title in json Post"
+// @Param Content query string false "Content in json Post"
+// @Success 200 {array} map[string]interface{}
+// @Router /v1/client/comment [post]
 func (p *postRouter) CreateComment(c *gin.Context) {
 	var request model.RequestPostComments
 	if err := c.ShouldBind(&request); err != nil {
@@ -435,6 +566,18 @@ func (p *postRouter) CreateComment(c *gin.Context) {
 	})
 }
 
+// CreateCategories godoc
+// @Summary CreateCategories Account
+// @Description CreateCategories account
+// @Accept  json
+// @Produce  json
+// @Param ParentId query string false "ParentId in json category"
+// @Param Title query string false "Title in json category"
+// @Param MetaTitle query string false "MetaTitle in json category"
+// @Param Slug query string false "Slug in json category"
+// @Param Content query string false "Content in json category"
+// @Success 200 {array} map[string]interface{}
+// @Router /v1/admin/category [post]
 func (p *postRouter) CreateCategories(c *gin.Context) {
 	var request model.RequestCategory
 	if err := c.ShouldBind(&request); err != nil {
@@ -467,6 +610,19 @@ func (p *postRouter) CreateCategories(c *gin.Context) {
 	})
 }
 
+// UpdateCategories godoc
+// @Summary UpdateCategories Account
+// @Description UpdateCategories account
+// @Accept  json
+// @Produce  json
+// @Param id query int true "Category ID"
+// @Param ParentId query string false "ParentId in json category"
+// @Param Title query string false "Title in json category"
+// @Param MetaTitle query string false "MetaTitle in json category"
+// @Param Slug query string false "Slug in json category"
+// @Param Content query string false "Content in json category"
+// @Success 200 {array} map[string]interface{}
+// @Router /v1/admin/category [put]
 func (p *postRouter) UpdateCategories(c *gin.Context) {
 	var request model.RequestCategory
 	if err := c.ShouldBind(&request); err != nil {
@@ -505,6 +661,14 @@ func (p *postRouter) UpdateCategories(c *gin.Context) {
 	})
 }
 
+// DeleteCategories godoc
+// @Summary DeleteCategories Account
+// @Description DeleteCategories account
+// @Accept  json
+// @Produce  json
+// @Param id query int true "category ID"
+// @Success 200 {array} map[string]interface{}
+// @Router /v1/admin/category [delete]
 func (p *postRouter) DeleteCategories(c *gin.Context) {
 	id, err := strconv.Atoi(c.Query("id"))
 	if err != nil {
@@ -529,6 +693,14 @@ func (p *postRouter) DeleteCategories(c *gin.Context) {
 	})
 }
 
+// CategoriesById godoc
+// @Summary CategoriesById Account
+// @Description CategoriesById account
+// @Accept  json
+// @Produce  json
+// @Param id query int true "category ID"
+// @Success 200 {array} map[string]interface{}
+// @Router /v1/admin/category [get]
 func (p *postRouter) CategoriesById(c *gin.Context) {
 	id, err := strconv.Atoi(c.Query("id"))
 	if err != nil {
@@ -555,6 +727,14 @@ func (p *postRouter) CategoriesById(c *gin.Context) {
 	})
 }
 
+// PostsAll godoc
+// @Summary PostsAll Account
+// @Description PostsAll account
+// @Accept  json
+// @Produce  json
+// @Success 200 {array} map[string]interface{}
+// @Router /v1/guest/post [get]
+// @Router /v1/client/post [get]
 func (p *postRouter) PostsAll(c *gin.Context) {
 	pagination := p.pagination.GeneratePaginationFromRequest(c)
 	var post model.Posts
@@ -574,6 +754,13 @@ func (p *postRouter) PostsAll(c *gin.Context) {
 	})
 }
 
+// ProfileAll godoc
+// @Summary ProfileAll Account
+// @Description ProfileAll account
+// @Accept  json
+// @Produce  json
+// @Success 200 {array} map[string]interface{}
+// @Router /v1/admin/profile [get]
 func (p *postRouter) ProfileAll(c *gin.Context) {
 	pagination := p.pagination.GeneratePaginationFromRequest(c)
 	var profile model.Profiles
@@ -593,6 +780,13 @@ func (p *postRouter) ProfileAll(c *gin.Context) {
 	})
 }
 
+// PostMetasAll godoc
+// @Summary PostMetasAll Account
+// @Description PostMetasAll account
+// @Accept  json
+// @Produce  json
+// @Success 200 {array} map[string]interface{}
+// @Router /v1/admin/post-metas [get]
 func (p *postRouter) PostMetasAll(c *gin.Context) {
 	pagination := p.pagination.GeneratePaginationFromRequest(c)
 	var postmeta model.PostMetas
@@ -612,6 +806,13 @@ func (p *postRouter) PostMetasAll(c *gin.Context) {
 	})
 }
 
+// CategoriesAll godoc
+// @Summary CategoriesAll Account
+// @Description CategoriesAll account
+// @Accept  json
+// @Produce  json
+// @Success 200 {array} map[string]interface{}
+// @Router /v1/admin/category [get]
 func (p *postRouter) CategoriesAll(c *gin.Context) {
 	pagination := p.pagination.GeneratePaginationFromRequest(c)
 	var category model.Categories
@@ -631,6 +832,14 @@ func (p *postRouter) CategoriesAll(c *gin.Context) {
 	})
 }
 
+// CommentAllPost godoc
+// @Summary CommentAllPost Account
+// @Description CommentAllPost account
+// @Accept  json
+// @Produce  json
+// @Param id query int true "User ID"
+// @Success 200 {array} map[string]interface{}
+// @Router /v1/client/comment [get]
 func (p *postRouter) CommentAllPost(c *gin.Context) {
 	id, err := strconv.Atoi(c.Query("id"))
 	if err != nil {
@@ -658,6 +867,14 @@ func (p *postRouter) CommentAllPost(c *gin.Context) {
 	})
 }
 
+// PublishPost godoc
+// @Summary PublishPost Account
+// @Description PublishPost account
+// @Accept  json
+// @Produce  json
+// @Param id query int true "User ID"
+// @Success 200 {array} map[string]interface{}
+// @Router /v1/admin//post/publish [post]
 func (p *postRouter) PublishPost(c *gin.Context) {
 	id, err := strconv.Atoi(c.Query("id"))
 	if err != nil {
@@ -681,6 +898,14 @@ func (p *postRouter) PublishPost(c *gin.Context) {
 	})
 }
 
+// RemoveComment godoc
+// @Summary RemoveComment Account
+// @Description RemoveComment account
+// @Accept  json
+// @Produce  json
+// @Param id query int true "User ID"
+// @Success 200 {array} map[string]interface{}
+// @Router /v1/client/comment [delete]
 func (p *postRouter) RemoveComment(c *gin.Context) {
 	id, err := strconv.Atoi(c.Query("id"))
 	if err != nil {
@@ -704,6 +929,13 @@ func (p *postRouter) RemoveComment(c *gin.Context) {
 	})
 }
 
+// ListPublishPost godoc
+// @Summary ListPublishPost Account
+// @Description ListPublishPost account
+// @Accept  json
+// @Produce  json
+// @Success 200 {array} map[string]interface{}
+// @Router /v1/admin/post/list/publish [get]
 func (p *postRouter) ListPublishPost(c *gin.Context) {
 	pagination := p.pagination.GeneratePaginationFromRequest(c)
 	var post model.Posts
@@ -723,6 +955,13 @@ func (p *postRouter) ListPublishPost(c *gin.Context) {
 	})
 }
 
+// ListNotPublishPost godoc
+// @Summary ListNotPublishPost Account
+// @Description ListNotPublishPost account
+// @Accept  json
+// @Produce  json
+// @Success 200 {array} map[string]interface{}
+// @Router /v1/admin/post/list/not/publish [get]
 func (p *postRouter) ListNotPublishPost(c *gin.Context) {
 	pagination := p.pagination.GeneratePaginationFromRequest(c)
 	var post model.Posts

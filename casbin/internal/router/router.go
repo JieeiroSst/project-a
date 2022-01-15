@@ -30,6 +30,13 @@ func NewCasbinRouter(deliveryHttp deliveryHttp.DeliveryHttp, snowflakeData snowf
 	}
 }
 
+// CasbinRuleAll godoc
+// @Summary CasbinRuleAll Permission
+// @Description CasbinRuleAll Permission
+// @Accept  json
+// @Produce  json
+// @Success 200 {array} map[string]interface{}
+// @Router /v1/casbin [get]
 func (r *casbinRouter) CasbinRuleAll(c *gin.Context) {
 	casbin, err := r.deliveryHttp.CasbinRuleAll()
 	if err != nil {
@@ -42,6 +49,14 @@ func (r *casbinRouter) CasbinRuleAll(c *gin.Context) {
 	})
 }
 
+// CasbinRuleById godoc
+// @Summary UpdateProfile Permission
+// @Description UpdateProfile Permission
+// @Accept  json
+// @Produce  json
+// @Param id path int true "Casbin ID"
+// @Success 200 {array} map[string]interface{}
+// @Router /v1/casbin/:id [get]
 func (r *casbinRouter) CasbinRuleById(c *gin.Context) {
 	id, err:= strconv.Atoi(c.Param("id"))
 	if err != nil {
@@ -59,7 +74,17 @@ func (r *casbinRouter) CasbinRuleById(c *gin.Context) {
 	})
 }
 
-
+// CreateCasbinRule godoc
+// @Summary UpdateProfile Permission
+// @Description UpdateProfile Permission
+// @Accept  json
+// @Produce  json
+// @Param ptype query string false "ptype is p/g in json casbin"
+// @Param V0 query string false "v0 is username in json casbin"
+// @Param V1 query string false "v1 is URL in json casbin"
+// @Param V2 query string false "v2 is method in json casbin"
+// @Success 200 {array} map[string]interface{}
+// @Router /v1/casbin [post]
 func (r *casbinRouter) CreateCasbinRule(c *gin.Context) {
 	var casbin model.CasbinRule
 	if err := c.ShouldBind(&casbin); err != nil {
@@ -85,6 +110,14 @@ func (r *casbinRouter) CreateCasbinRule(c *gin.Context) {
 	})
 }
 
+// DeleteCasbinRule godoc
+// @Summary DeleteCasbinRule Permission
+// @Description DeleteCasbinRule Permission
+// @Accept  json
+// @Produce  json
+// @Param id path int true "User ID"
+// @Success 200 {array} map[string]interface{}
+// @Router /v1/casbin/:id [delete]
 func (r *casbinRouter) DeleteCasbinRule(c *gin.Context) {
 	id, err:= strconv.Atoi(c.Param("id"))
 	if err != nil {
@@ -101,6 +134,19 @@ func (r *casbinRouter) DeleteCasbinRule(c *gin.Context) {
 	})
 }
 
+// UpdateCasbinRulePtype godoc
+// @Summary UpdateProfile Permission
+// @Description UpdateProfile Permission
+// @Accept  json
+// @Produce  json
+// @Param id path int true "User ID"
+// @Param option query string false "option "
+// @Param ptype query string false "ptype is p/g in json casbin"
+// @Param V0 query string false "v0 is username in json casbin"
+// @Param V1 query string false "v1 is URL in json casbin"
+// @Param V2 query string false "v2 is method in json casbin"
+// @Success 200 {array} map[string]interface{}
+// @Router /v1/casbin [put]
 func (r *casbinRouter) UpdateCasbinRulePtype(c *gin.Context) {
 	id, err:= strconv.Atoi(c.Param("id"))
 	if err != nil {
@@ -121,6 +167,13 @@ func (r *casbinRouter) UpdateCasbinRulePtype(c *gin.Context) {
 	})
 }
 
+// OptionList godoc
+// @Summary OptionList Permission
+// @Description OptionList Permission
+// @Accept  json
+// @Produce  json
+// @Success 200 {array} map[string]interface{}
+// @Router /v1/casbin/option [get]
 func (r *casbinRouter) OptionList(c *gin.Context) {
 	option := make( map[int]string)
 	option[1] = "Ptype"

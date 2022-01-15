@@ -35,7 +35,7 @@ func NewAuthorization(cache bigcache.Cache,jwt jwt.TokenUser) Authorization{
 
 func (a *authorization) Authenticate() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		bearToken:=c.Request.Header.Get("Authorization")
+		bearToken:=c.Request.Header.Get("Authentication")
 		if bearToken == ""{
 			c.JSON(403,map[string]interface{}{"message":"Authentication failure: Token not provided","status":403})
 			c.AbortWithStatus(http.StatusForbidden)

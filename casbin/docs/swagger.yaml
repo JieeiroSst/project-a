@@ -1,0 +1,152 @@
+info:
+  contact: {}
+paths:
+  /v1/casbin:
+    get:
+      consumes:
+      - application/json
+      description: CasbinRuleAll Permission
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              additionalProperties: true
+              type: object
+            type: array
+      summary: CasbinRuleAll Permission
+    post:
+      consumes:
+      - application/json
+      description: UpdateProfile Permission
+      parameters:
+      - description: ptype is p/g in json casbin
+        in: query
+        name: ptype
+        type: string
+      - description: v0 is username in json casbin
+        in: query
+        name: V0
+        type: string
+      - description: v1 is URL in json casbin
+        in: query
+        name: V1
+        type: string
+      - description: v2 is method in json casbin
+        in: query
+        name: V2
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              additionalProperties: true
+              type: object
+            type: array
+      summary: UpdateProfile Permission
+    put:
+      consumes:
+      - application/json
+      description: UpdateProfile Permission
+      parameters:
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: 'option '
+        in: query
+        name: option
+        type: string
+      - description: ptype is p/g in json casbin
+        in: query
+        name: ptype
+        type: string
+      - description: v0 is username in json casbin
+        in: query
+        name: V0
+        type: string
+      - description: v1 is URL in json casbin
+        in: query
+        name: V1
+        type: string
+      - description: v2 is method in json casbin
+        in: query
+        name: V2
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              additionalProperties: true
+              type: object
+            type: array
+      summary: UpdateProfile Permission
+  /v1/casbin/:id:
+    delete:
+      consumes:
+      - application/json
+      description: DeleteCasbinRule Permission
+      parameters:
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              additionalProperties: true
+              type: object
+            type: array
+      summary: DeleteCasbinRule Permission
+    get:
+      consumes:
+      - application/json
+      description: UpdateProfile Permission
+      parameters:
+      - description: Casbin ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              additionalProperties: true
+              type: object
+            type: array
+      summary: UpdateProfile Permission
+  /v1/casbin/option:
+    get:
+      consumes:
+      - application/json
+      description: OptionList Permission
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              additionalProperties: true
+              type: object
+            type: array
+      summary: OptionList Permission
+swagger: "2.0"

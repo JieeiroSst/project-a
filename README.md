@@ -1,3 +1,4 @@
+```
 mockgen -destination=mock_doer.go -package=repository github.com/JieeiroSst/itjob/users/internal/repository UserRepository
  
 mockgen -destination=mocks/mock_doer.go -package=mocks github.com/JieeiroSst/itjob/users/internal/usecase UserUsecase
@@ -9,13 +10,32 @@ mockgen -destination=mocks/mock_doer.go -package=mocks  github.com/JieeiroSst/it
 mockgen -destination=mocks/mock_doer.go -package=mocks  github.com/JieeiroSst/itjob/users/internal/db UserDB
  
 github.com/JieeiroSst/itjob/users/internal
+```
  
  
- 
+#casbin 
+
+```
+p, alice, /alice_data/*, GET
+
+p, alice, /alice_data/resource1, POST
+
+p, bob, /alice_data/resource2, GET
+
+p, bob, /bob_data/*, POST
+
+p, cathy, /cathy_data, (GET)|(POST)
+
+```
+
+```
 .Preload("Orders", func(db *gorm.DB) *gorm.DB {
    return db.Unscoped() 
 }
+``` 
+ 
 
+```
 func Monit(db *gorm.DB) {
 	log.Println("[INFO][System]\tStarted monitoring of files and db entries")
 	tc := time.NewTicker(1 * time.Minute)
@@ -35,14 +55,18 @@ func Monit(db *gorm.DB) {
 		<-tc.C
 	}
 }
+```
 
 func (p *Point) Delete(db gorm.DB) {
 	db.Unscoped().Delete(p)
 }
 
+```
 time_start _+ interval '10 second'
 
+```
 
+```
 func unique(sample []Data) []Data {
 	var unique []Data
 sampleLoop:
@@ -57,12 +81,17 @@ sampleLoop:
 	}
 	return unique
 }
+```
 
 
-open premission send email . https://myaccount.google.com/u/0/lesssecureapps
+#Open premission send email
+
+```
+    https://myaccount.google.com/u/0/lesssecureapps
+```
 
 
-. call rabbitmq
+# Call rabbitmq
 ```
 func (e *EmailServer) Run() {
 	emailsPublisher, err := rabbitmq.NewEmailsPublisher(e.cfg)

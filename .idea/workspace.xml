@@ -3,10 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="e5241c6f-13fd-43c2-8971-c3cfa54ad157" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/access_control/access_control.go" beforeDir="false" afterPath="$PROJECT_DIR$/access_control/access_control.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/casbin/internal/router/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/casbin/internal/router/router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/casbin/internal/server/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/casbin/internal/server/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post/internal/query/router/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/post/internal/query/router/router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post/internal/query/server/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/post/internal/query/server/server.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/internal/router/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/users/internal/router/router.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/internal/server/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/users/internal/server/server.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,19 +51,19 @@
     <property name="settings.editor.selected.configurable" value="go" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/post/internal/query" />
+      <recent name="$PROJECT_DIR$/casbin" />
+      <recent name="$PROJECT_DIR$/users" />
+      <recent name="$PROJECT_DIR$/pkg/migrate" />
+      <recent name="$PROJECT_DIR$/post/internal/search" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/pkg" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/users" />
       <recent name="$PROJECT_DIR$/access_control" />
       <recent name="$PROJECT_DIR$/config" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/users" />
-      <recent name="$PROJECT_DIR$/pkg/migrate" />
-      <recent name="$PROJECT_DIR$/post/internal/search" />
-      <recent name="$PROJECT_DIR$/db/migration" />
-      <recent name="$PROJECT_DIR$/casbin/internal" />
     </key>
   </component>
   <component name="TypeScriptGeneratedFilesManager">

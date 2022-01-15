@@ -1,0 +1,229 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/v1/casbin": {
+            "get": {
+                "description": "CasbinRuleAll Permission",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "CasbinRuleAll Permission",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": true
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "UpdateProfile Permission",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "UpdateProfile Permission",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "User ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "option ",
+                        "name": "option",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "ptype is p/g in json casbin",
+                        "name": "ptype",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "v0 is username in json casbin",
+                        "name": "V0",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "v1 is URL in json casbin",
+                        "name": "V1",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "v2 is method in json casbin",
+                        "name": "V2",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": true
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "UpdateProfile Permission",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "UpdateProfile Permission",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "ptype is p/g in json casbin",
+                        "name": "ptype",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "v0 is username in json casbin",
+                        "name": "V0",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "v1 is URL in json casbin",
+                        "name": "V1",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "v2 is method in json casbin",
+                        "name": "V2",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": true
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/casbin/:id": {
+            "get": {
+                "description": "UpdateProfile Permission",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "UpdateProfile Permission",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Casbin ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": true
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "DeleteCasbinRule Permission",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "DeleteCasbinRule Permission",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "User ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": true
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/casbin/option": {
+            "get": {
+                "description": "OptionList Permission",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "OptionList Permission",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": true
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
