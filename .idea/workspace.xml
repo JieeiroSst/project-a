@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e5241c6f-13fd-43c2-8971-c3cfa54ad157" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/access_control/access_control.go" beforeDir="false" afterPath="$PROJECT_DIR$/access_control/access_control.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/casbin/internal/router/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/casbin/internal/router/router.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/casbin/internal/server/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/casbin/internal/server/server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/post/internal/query/router/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/post/internal/query/router/router.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/post/internal/query/server/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/post/internal/query/server/server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/internal/router/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/users/internal/router/router.go" afterDir="false" />
-    </list>
+    <list default="true" id="e5241c6f-13fd-43c2-8971-c3cfa54ad157" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
