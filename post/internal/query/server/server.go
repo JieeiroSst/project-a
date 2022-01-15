@@ -18,7 +18,6 @@ type postServer struct {
 	db 			  *gorm.DB
 }
 
-
 type PostServer interface {
 	RunServer() error
 }
