@@ -39,7 +39,7 @@ func (s *casbinServer) Run() error {
 
 	resource := s.server.Group("/v1")
 
-	url := ginSwagger.URL("http://localhost:3000/swagger/casbin/doc.json") // The url pointing to API definition
+	url := ginSwagger.URL("http://localhost:5000/swagger/casbin/doc.json") // The url pointing to API definition
 	resource.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler, url))
 
 	resource.Use(s.auth.Authenticate())

@@ -1,0 +1,36 @@
+info:
+  contact: {}
+paths:
+  /v1/email/client_send:
+    post:
+      consumes:
+      - '*/*'
+      description: get the status of server.
+      parameters:
+      - description: NameEmailReceive
+        in: query
+        name: NameEmailReceive
+        required: true
+        type: string
+      - description: SubjectEmail
+        in: query
+        name: SubjectEmail
+        required: true
+        type: string
+      - description: Content
+        in: query
+        name: Content
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Show the status of server.
+      tags:
+      - root
+swagger: "2.0"

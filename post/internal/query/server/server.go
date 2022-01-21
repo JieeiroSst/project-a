@@ -38,7 +38,7 @@ func (p *postServer) RunServer() error {
 	}
 
 	resource := p.engine.Group("/v1")
-	url := ginSwagger.URL("http://localhost:3000/swagger/post/doc.json") // The url pointing to API definition
+	url := ginSwagger.URL("http://localhost:5000/swagger/post/doc.json") // The url pointing to API definition
 	resource.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler, url))
 
 	resourceGuest := resource.Group("/guest")

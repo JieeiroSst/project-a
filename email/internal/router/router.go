@@ -30,6 +30,18 @@ func NewEmailRouter(http delivery.EmailHttp,config config.Config,snowflake snowf
 	}
 }
 
+// UserSendEmail godoc
+// @Summary Show the status of server.
+// @Description get the status of server.
+// @Tags root
+// @Accept */*
+// @Produce json
+// @Param NameEmailSend query string true "NameEmailSend"
+// @Param NameEmailReceive query string true "NameEmailReceive"
+// @Param SubjectEmail query string true "SubjectEmail"
+// @Param Content query string true "Content"
+// @Success 200 {object} map[string]interface{}
+// @Router /v1/email/client_send [post]
 func (e *emailRouter) UserSendEmail(c *gin.Context) {
 	var requestEmail model.RequestEmail
 	if err :=c.ShouldBind(requestEmail); err != nil {
@@ -86,6 +98,17 @@ func (e *emailRouter) UserSendEmail(c *gin.Context) {
 	})
 }
 
+// AdminSendEmail godoc
+// @Summary Show the status of server.
+// @Description get the status of server.
+// @Tags root
+// @Accept */*
+// @Produce json
+// @Param NameEmailReceive query string true "NameEmailReceive"
+// @Param SubjectEmail query string true "SubjectEmail"
+// @Param Content query string true "Content"
+// @Success 200 {object} map[string]interface{}
+// @Router /v1/email/client_send [post]
 func (e *emailRouter) AdminSendEmail(c *gin.Context)  {
 	var requestEmail model.RequestEmail
 	if err :=c.ShouldBind(requestEmail); err != nil {

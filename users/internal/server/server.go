@@ -26,7 +26,7 @@ func NewUserServer(router router.UserRouter, server *gin.Engine) UserServer {
 
 func (r *userServer) RunServer() error {
 	group := r.server.Group("/v1")
-	url := ginSwagger.URL("http://localhost:3000/swagger/users/doc.json") // The url pointing to API definition
+	url := ginSwagger.URL("http://localhost:5000/swagger/users/doc.json") // The url pointing to API definition
 	group.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler, url))
 	group.POST("/login", r.router.Login).
 		  POST("/register", r.router.SignUp).

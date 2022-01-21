@@ -59,4 +59,3 @@ func Migrate1636995600add_table(db *gorm.DB) *gormigrate.Gormigrate {
   })
 
 }
-

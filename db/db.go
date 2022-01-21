@@ -1,8 +1,8 @@
 package db
 
 import (
-	"gorm.io/gorm"
 	"github.com/JieeiroSst/itjob/db/migration"
+	"gorm.io/gorm"
 )
 
 type autoMigrate struct {

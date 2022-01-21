@@ -14,7 +14,6 @@ import (
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
-	"github.com/JieeiroSst/itjob/migrate"
 	"time"
 )
 
@@ -43,11 +42,6 @@ func main(){
 
 	conf, err := config.ReadConf("config/conf-docker.yml")
 	if err != nil {
-		log.NewLog().Error(err.Error())
-	}
-
-	autoMigrate := migrate.NewAutoMigrate(*conf)
-	if err := autoMigrate.AutoMigrate(); err != nil {
 		log.NewLog().Error(err.Error())
 	}
 
