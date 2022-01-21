@@ -25,7 +25,6 @@ func NewEmailServer(router router.EmailRouter) EmailServer {
 func (e *emailServer) Run() error {
 	group := e.engine.Group("/v1/email")
 
-
 	url := ginSwagger.URL("http://localhost:5000/swagger/email/doc.json") // The url pointing to API definition
 	group.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler, url))
 
