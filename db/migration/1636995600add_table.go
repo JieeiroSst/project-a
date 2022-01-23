@@ -16,7 +16,7 @@ func Migrate1636995600add_table(db *gorm.DB) *gormigrate.Gormigrate {
 		   const (
 					Avatar	Option = "AVATAR"
 					News 	Option = "NEWS"
-				)
+					)
 
             type Image struct {
             	Id     		int			`gorm:"primaryKey" json:"id"`
