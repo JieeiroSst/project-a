@@ -17,8 +17,8 @@ type requestLimit struct {
 
 
 type RequestLimit interface {
-	GetRequest(ip string, limit int) *rate.Limiter
-	Throttle(next http.Handler, limit int) http.Handler
+	getRequest(ip string, limit int) *rate.Limiter
+	RateLimitRequest(next http.Handler, limit int) http.Handler
 }
 
 func NewRequestLimit(limiter  *rate.Limiter) RequestLimit {
@@ -32,7 +32,7 @@ var (
  	mu sync.Mutex
 )
 
-func (request *requestLimit) GetRequest(ip string, limit int) *rate.Limiter {
+func (request *requestLimit) getRequest(ip string, limit int) *rate.Limiter {
 	mu.Lock()
 	defer mu.Unlock()
 
@@ -47,14 +47,14 @@ func (request *requestLimit) GetRequest(ip string, limit int) *rate.Limiter {
 	return v.limiter
 }
 
-func (request *requestLimit) Throttle(next http.Handler, limit int) http.Handler {
+func (request *requestLimit) RateLimitRequest(next http.Handler, limit int) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		ip, _, err := net.SplitHostPort(r.RemoteAddr)
 		if err != nil {
 			http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 			return
 		}
-		limiter := request.GetRequest(ip, limit)
+		limiter := request.getRequest(ip, limit)
 		if limiter.Allow() == false {
 			http.Error(w, http.StatusText(http.StatusTooManyRequests), http.StatusTooManyRequests)
 			return
