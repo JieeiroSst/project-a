@@ -1,9 +1,6 @@
 package access_control
 
-
 import (
-	"fmt"
-	"log"
 	"net"
 	"net/http"
 	"sync"
@@ -13,16 +10,29 @@ import (
 )
 
 
-type request struct {
+type requestLimit struct {
 	limiter  *rate.Limiter
 	lastSeen time.Time
 }
 
 
-var requests = make(map[string]*request)
-var mu sync.Mutex
+type RequestLimit interface {
+	GetRequest(ip string, limit int) *rate.Limiter
+	Throttle(next http.Handler, limit int) http.Handler
+}
 
-func getRequest(ip string, limit int) *rate.Limiter {
+func NewRequestLimit(limiter  *rate.Limiter) RequestLimit {
+	return &requestLimit{
+		limiter:  limiter,
+	}
+}
+
+var (
+	requests = make(map[string]*requestLimit)
+ 	mu sync.Mutex
+)
+
+func (request *requestLimit) GetRequest(ip string, limit int) *rate.Limiter {
 	mu.Lock()
 	defer mu.Unlock()
 
@@ -30,23 +40,21 @@ func getRequest(ip string, limit int) *rate.Limiter {
 	if !exists {
 		rt := rate.Every(24*time.Hour / 50)
 		limiter := rate.NewLimiter(rt, limit)
-		requests[ip] = &request{limiter, time.Now()}
+		requests[ip] = &requestLimit{limiter, time.Now()}
 		return limiter
 	}
 	v.lastSeen = time.Now()
 	return v.limiter
 }
 
-func throttle(next http.Handler, limit int) http.Handler {
+func (request *requestLimit) Throttle(next http.Handler, limit int) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		ip, _, err := net.SplitHostPort(r.RemoteAddr)
 		if err != nil {
-			log.Println(err.Error())
 			http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 			return
 		}
-		limiter := getRequest(ip, limit)
-		fmt.Println(limiter.Allow())
+		limiter := request.GetRequest(ip, limit)
 		if limiter.Allow() == false {
 			http.Error(w, http.StatusText(http.StatusTooManyRequests), http.StatusTooManyRequests)
 			return
