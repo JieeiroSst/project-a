@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e5241c6f-13fd-43c2-8971-c3cfa54ad157" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migration/1636995600add_table.go" beforeDir="false" afterPath="$PROJECT_DIR$/db/migration/1636995600add_table.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/s3/s3.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/s3/s3.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

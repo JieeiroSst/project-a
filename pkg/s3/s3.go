@@ -30,3 +30,4 @@ func GetS3ConnInstance(region string) *AmazonS3{
 func NewS3(region string) *session.Session {
 	return GetS3ConnInstance(region).s3
 }
+
